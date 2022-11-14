@@ -7,7 +7,6 @@ import com.bari.gestionecorsi.architecture.dao.DAOException;
 import com.bari.gestionecorsi.architecture.dbaccess.DBAccess;
 
 
-
 public class DocenteBC {
 	
 	private Connection conn;

@@ -10,11 +10,6 @@ import javax.sql.rowset.RowSetProvider;
 import com.bari.gestionecorsi.businesscomponent.model.Docente;
 
 
-
-
-
-
-
 public class DocenteDAO implements GenericDAO<Docente>, DAOConstants{
 	
 	public static DocenteDAO getFactory() throws DAOException {
