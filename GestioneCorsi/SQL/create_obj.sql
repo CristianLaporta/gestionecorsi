@@ -7,6 +7,13 @@ username_admin varchar2(10) not null,
 password_admin varchar2(500) not null,
 constraint p_id_admin primary key(id_admin));
 
+create table docente(
+id_docente int,
+nome_docente varchar2(30) not null,
+cognome_docente varchar2(30) not null,
+cv_docente varchar2(500) not null,
+constraint p_id_docente primary key(id_docente));
+
 create table corso(
 id_corso int,
 nome_corso varchar2(30) not null,
@@ -33,18 +40,6 @@ constraint f_id_corsista foreign key(id_corsista) references corsista(id_corsist
 constraint f_id_corso foreign key(id_corso) references corso(id_corso),
 constraint p_cc primary key(id_corsista, id_corso));
 
-create table docente(
-id_docente int,
-nome_docente varchar2(30) not null,
-cognome_docente varchar2(30) not null,
-cv_docente varchar2(500) not null,
-constraint p_id_docente primary key(id_docente));
-
 --Sequenze
 create sequence corsista_seq;
 create sequence corso_seq;
-
-
-
-
-
