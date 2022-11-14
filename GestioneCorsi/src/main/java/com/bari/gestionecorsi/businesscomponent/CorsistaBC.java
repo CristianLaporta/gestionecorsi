@@ -25,6 +25,7 @@ public class CorsistaBC {
 			corsista.setIdCorsista(CorsistaIdGenerator.getInstance().getNextId());
 			CorsistaDAO.getFactory().create(conn, corsista);
 			
+			
 		}
 	}
 	
