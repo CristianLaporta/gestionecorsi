@@ -18,7 +18,7 @@ public interface DAOConstants {
 	
 	// -----------CORSO--------------
 	String SELECT_CORSO = "select * from corso";
-	String UPDATE_CORSO = "update corso set nome_corso = ? , data_fine_corso = ? , costo_corso = ? , commenti_corso = ?, aula_corso = ?, id_docente = ? where id_corso=?";
+	String UPDATE_CORSO = "update corso set nome_corso = ?, data_inizio_corso = ?, data_fine_corso = ? , costo_corso = ? , commenti_corso = ?, aula_corso = ?, id_docente = ? where id_corso=?";
 	String DELETE_CORSO = "delete from corso where id_corso=?";
 	String SELECT_CORSO_BYID = "select * from corso where id_corso = ?";
 	
