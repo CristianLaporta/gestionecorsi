@@ -1,15 +1,15 @@
 package com.bari.gestionecorsi.businesscomponent.model;
 
 public class Docente {
-	private int idDocente;
+	private long idDocente;
 	private String nomeDocente;
 	private String cognomeDocente;
 	private String cvDocente;
 	
-	public int getIdDocente() {
+	public long getIdDocente() {
 		return idDocente;
 	}
-	public void setIdDocente(int idDocente) {
+	public void setIdDocente(long idDocente) {
 		this.idDocente = idDocente;
 	}
 	public String getNomeDocente() {

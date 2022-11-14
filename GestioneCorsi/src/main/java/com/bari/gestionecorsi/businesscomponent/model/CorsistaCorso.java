@@ -1,20 +1,20 @@
 package com.bari.gestionecorsi.businesscomponent.model;
 
 public class CorsistaCorso {
-	private int idCorsista;
-	private int idCorso;
+	private long idCorsista;
+	private long idCorso;
 	
-	public int getIdCorsista() {
+	public long getIdCorsista() {
 		return idCorsista;
 	}
-	public void setIdCorsista(int idCorsista) {
+	public void setIdCorsista(long idCorsista) {
 		this.idCorsista = idCorsista;
 		
 	}
-	public int getIdCorso() {
+	public long getIdCorso() {
 		return idCorso;
 	}
-	public void setIdCorso(int idCorso) {
+	public void setIdCorso(long idCorso) {
 		this.idCorso = idCorso;
 	}
 	

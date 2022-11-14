@@ -3,19 +3,19 @@ package com.bari.gestionecorsi.businesscomponent.model;
 import java.util.Date;
 
 public class Corso {
-	private int idCorso;
+	private long idCorso;
 	private String nomeCorso;
 	private Date dataInizioCorso;
 	private Date dataFineCorso;
 	private double costoCorso;
 	private String commentiCorso;
 	private String aulaCorso;
-	private int idDocente;
+	private long idDocente;
 	
-	public int getIdCorso() {
+	public long getIdCorso() {
 		return idCorso;
 	}
-	public void setIdCorso(int idCorso) {
+	public void setIdCorso(long idCorso) {
 		this.idCorso = idCorso;
 	}
 	public String getNomeCorso() {
@@ -54,10 +54,10 @@ public class Corso {
 	public void setAulaCorso(String aulaCorso) {
 		this.aulaCorso = aulaCorso;
 	}
-	public int getIdDocente() {
+	public long getIdDocente() {
 		return idDocente;
 	}
-	public void setIdDocente(int idDocente) {
+	public void setIdDocente(long idDocente) {
 		this.idDocente = idDocente;
 	}
 	

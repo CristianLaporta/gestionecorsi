@@ -1,16 +1,16 @@
 package com.bari.gestionecorsi.businesscomponent.model;
 
 public class Admin {
-	private int idAdmin;
+	private long idAdmin;
 	private String nomeAdmin;
 	private String cognomeAdmin;
 	private String username;
 	private String password;
 	
-	public int getIdAdmin() {
+	public long getIdAdmin() {
 		return idAdmin;
 	}
-	public void setIdAdmin(int idAdmin) {
+	public void setIdAdmin(long idAdmin) {
 		this.idAdmin = idAdmin;
 	}
 	public String getNomeAdmin() {
