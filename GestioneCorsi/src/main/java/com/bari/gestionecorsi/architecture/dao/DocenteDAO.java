@@ -13,6 +13,8 @@ import com.bari.gestionecorsi.businesscomponent.model.Docente;
 
 
 
+
+
 public class DocenteDAO implements GenericDAO<Docente>, DAOConstants{
 	
 	public static DocenteDAO getFactory() throws DAOException {
@@ -70,7 +72,16 @@ public class DocenteDAO implements GenericDAO<Docente>, DAOConstants{
 
 	@Override
 	public void delete(Connection conn, Docente entity) throws DAOException {
-		// TODO Auto-generated method stub
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(DELETE_DOCENTE);
+			ps.setLong(1, entity.getIdDocente());
+			ps.execute();
+			conn.commit();
+			
+		} catch (SQLException e) {
+			throw new DAOException(e);
+		}
 		
 	}
 
