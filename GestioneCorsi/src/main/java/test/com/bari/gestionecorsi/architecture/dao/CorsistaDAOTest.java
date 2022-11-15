@@ -9,6 +9,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import com.bari.gestionecorsi.architecture.dao.CorsistaDAO;
 import com.bari.gestionecorsi.architecture.dao.DAOException;
@@ -17,7 +19,7 @@ import com.bari.gestionecorsi.businesscomponent.model.Corsista;
 
 
 
-
+@TestMethodOrder(OrderAnnotation.class)
 class CorsistaDAOTest {
 	private static Corsista corsista;
 	private static Connection conn;
@@ -37,6 +39,7 @@ class CorsistaDAOTest {
 	void testCreate() {
 		try{
 			CorsistaDAO.getFactory().create(conn, corsista);
+			System.out.println("Creato corsista: "+corsista.toString());
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Motivo: "+exc.getMessage());
@@ -53,7 +56,7 @@ class CorsistaDAOTest {
 			corsista.setCognomeCorsista("S20");
 			corsista.setPrecedentiCorsista("NO");
 			CorsistaDAO.getFactory().update(conn, corsista);
-			System.out.println("Aggiornato corsista: ");
+			System.out.print("Aggiornato corsista: ");
 			Corsista cors = CorsistaDAO.getFactory().getById(conn, 6);
 			System.out.println(cors.toString());
 		}catch(DAOException exc) {
@@ -78,7 +81,7 @@ class CorsistaDAOTest {
 	static void tearDownAfterClass() throws Exception {
 		try {
 			CorsistaDAO.getFactory().delete(conn, corsista);
-			System.out.println("Eliminato corsista: ");
+			System.out.println("Eliminato corsista: "+corsista.toString());
 			DBAccess.closeConnection();
 		}catch(DAOException exc) {
 			exc.printStackTrace();

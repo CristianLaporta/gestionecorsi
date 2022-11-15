@@ -33,6 +33,7 @@ class CorsistaCorsoDAOTest {
 		corsista.setNomeCorsista("Giovanni");
 		corsista.setCognomeCorsista("Moccia");
 		corsista.setPrecedentiCorsista("SI");
+		System.out.println("Creato corsista: "+corsista.toString());
 		//CORSO CREATE
 		corso = new Corso();
 		corso.setIdCorso(1);
@@ -43,6 +44,7 @@ class CorsistaCorsoDAOTest {
 		corso.setCommentiCorso("Academy formazione java");
 		corso.setAulaCorso("2a");
 		corso.setIdDocente(1);
+		System.out.println("Creato corso: "+corso.toString());
 		//CORSISTACORSO CREATE
 		corsistaCorso = new CorsistaCorso();
 		corsistaCorso.setIdCorsista(1);
@@ -55,6 +57,7 @@ class CorsistaCorsoDAOTest {
 			CorsistaDAO.getFactory().create(conn, corsista);
 			CorsoDAO.getFactory().create(conn, corso);
 			CorsistaCorsoDAO.getFactory().create(conn, corsistaCorso);
+			System.out.println("Creata tabella: "+corsistaCorso.toString());
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Motivo: "+exc.getMessage());
@@ -65,9 +68,9 @@ class CorsistaCorsoDAOTest {
 	static void tearDownAfterClass() throws Exception {
 		try {
 			CorsoDAO.getFactory().delete(conn, corso);
-			System.out.println("Eliminato corso");
+			System.out.println("Eliminato corso: "+corso.toString());
 			CorsistaDAO.getFactory().delete(conn, corsista);
-			System.out.println("Eliminato corsista");
+			System.out.println("Eliminato corsista: "+corsista.toString());
 			DBAccess.closeConnection();
 		}catch(DAOException exc) {
 			exc.printStackTrace();
