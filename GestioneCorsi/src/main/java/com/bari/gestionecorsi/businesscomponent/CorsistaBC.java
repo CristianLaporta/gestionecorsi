@@ -36,5 +36,9 @@ public class CorsistaBC {
 		return CorsistaDAO.getFactory().getAll(conn);
 	}
 	
+	public Corsista getById(Connection conn, long id) throws DAOException {
+		return CorsistaDAO.getFactory().getById(conn, id);
+	}
+	
 }
 
