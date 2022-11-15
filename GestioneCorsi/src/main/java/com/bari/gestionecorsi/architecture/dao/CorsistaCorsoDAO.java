@@ -13,6 +13,7 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 		return new CorsistaCorsoDAO();
 	}
 
+	
 
 	private CachedRowSet rowSet;
 
