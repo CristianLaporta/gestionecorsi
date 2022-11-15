@@ -6,6 +6,7 @@ import java.sql.Connection;
 import com.bari.gestionecorsi.architecture.dao.CorsistaDAO;
 import com.bari.gestionecorsi.architecture.dao.DAOException;
 import com.bari.gestionecorsi.architecture.dbaccess.DBAccess;
+import com.bari.gestionecorsi.businesscomponent.idgenerator.CorsistaIdGenerator;
 import com.bari.gestionecorsi.businesscomponent.model.Corsista;
 
 
@@ -24,8 +25,6 @@ public class CorsistaBC {
 		else {
 			corsista.setIdCorsista(CorsistaIdGenerator.getInstance().getNextId());
 			CorsistaDAO.getFactory().create(conn, corsista);
-			
-			
 		}
 	}
 	
@@ -36,4 +35,6 @@ public class CorsistaBC {
 	public Corsista[] getAll() throws DAOException {
 		return CorsistaDAO.getFactory().getAll(conn);
 	}
+	
 }
+
