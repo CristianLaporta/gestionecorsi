@@ -2,6 +2,7 @@ package test.com.bari.gestionecorsi.architecture.dao;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.util.GregorianCalendar;
 
@@ -17,6 +18,7 @@ import com.bari.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.bari.gestionecorsi.businesscomponent.model.Corsista;
 import com.bari.gestionecorsi.businesscomponent.model.CorsistaCorso;
 import com.bari.gestionecorsi.businesscomponent.model.Corso;
+import com.bari.gestionecorsi.businesscomponent.utilities.ControlloPosti;
 
 class CorsistaCorsoDAOTest {
 	private static Corsista corsista;
@@ -43,6 +45,7 @@ class CorsistaCorsoDAOTest {
 		corso.setCostoCorso(500);
 		corso.setCommentiCorso("Academy formazione java");
 		corso.setAulaCorso("2a");
+		corso.setPostiDisponibili(10);
 		corso.setIdDocente(1);
 		System.out.println("Creato corso: "+corso.toString());
 		//CORSISTACORSO CREATE
@@ -58,9 +61,19 @@ class CorsistaCorsoDAOTest {
 			CorsoDAO.getFactory().create(conn, corso);
 			CorsistaCorsoDAO.getFactory().create(conn, corsistaCorso);
 			System.out.println("Creata tabella: "+corsistaCorso.toString());
+			int posti = 0;
+			ControlloPosti controllo = new ControlloPosti();
+			posti = controllo.controllaPosti(1);
+			System.out.println(posti);
 		}catch(DAOException exc) {
 			exc.printStackTrace();
 			fail("Motivo: "+exc.getMessage());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	

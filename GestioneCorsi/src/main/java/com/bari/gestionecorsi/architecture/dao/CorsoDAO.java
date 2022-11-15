@@ -21,7 +21,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			throw new DAOException(sql);
 		}
 	}
-	
+
 	public static CorsoDAO getFactory() throws DAOException {
 		return new CorsoDAO();
 	}
@@ -39,13 +39,14 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			rowSet.updateDouble(5, entity.getCostoCorso());
 			rowSet.updateString(6, entity.getCommentiCorso());
 			rowSet.updateString(7, entity.getAulaCorso());
-			rowSet.updateDouble(8, entity.getIdDocente());
+			rowSet.updateInt(8, entity.getPostiDisponibili());
+			rowSet.updateDouble(9, entity.getIdDocente());
 			rowSet.insertRow();
 			rowSet.moveToCurrentRow();
 			rowSet.acceptChanges();
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		}	
+		}
 	}
 
 	@Override
@@ -60,12 +61,13 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			ps.setString(5, entity.getCommentiCorso());
 			ps.setString(6, entity.getAulaCorso());
 			ps.setLong(7, entity.getIdDocente());
-			ps.setLong(8, entity.getIdCorso());
+			ps.setInt(8, entity.getPostiDisponibili());
+			ps.setLong(9, entity.getIdCorso());
 			ps.execute();
 			conn.commit();
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		}	
+		}
 	}
 
 	@Override
@@ -78,7 +80,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			conn.commit();
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
-		}	
+		}
 	}
 
 	@Override
@@ -89,7 +91,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			ps = conn.prepareStatement(SELECT_CORSO_BYID);
 			ps.setLong(1, id);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				corso = new Corso();
 				corso.setIdCorso(rs.getLong(1));
 				corso.setNomeCorso(rs.getString(2));
@@ -98,7 +100,8 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 				corso.setCostoCorso(rs.getDouble(5));
 				corso.setCommentiCorso(rs.getString(6));
 				corso.setAulaCorso(rs.getString(7));
-				corso.setIdDocente(rs.getLong(8));
+				corso.setPostiDisponibili(rs.getInt(8));
+				corso.setIdDocente(rs.getLong(9));
 			}
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
@@ -110,15 +113,13 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 	public Corso[] getAll(Connection conn) throws DAOException {
 		Corso[] corsi = null;
 		try {
-			Statement stmt = conn.createStatement(
-					ResultSet.TYPE_SCROLL_INSENSITIVE,
-					ResultSet.CONCUR_READ_ONLY);
+			Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 			ResultSet rs = stmt.executeQuery(SELECT_CORSO);
 			rs.last();
-					
+
 			corsi = new Corso[rs.getRow()];
 			rs.beforeFirst();
-			for(int i = 0; rs.next(); i++) {
+			for (int i = 0; rs.next(); i++) {
 				Corso corso = new Corso();
 				corso.setIdCorso(rs.getLong(1));
 				corso.setNomeCorso(rs.getString(2));
@@ -127,12 +128,29 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 				corso.setCostoCorso(rs.getDouble(5));
 				corso.setCommentiCorso(rs.getString(6));
 				corso.setAulaCorso(rs.getString(7));
-				corso.setIdDocente(rs.getLong(8));
+				corso.setPostiDisponibili(rs.getInt(8));
+				corso.setIdDocente(rs.getLong(9));
 				corsi[i] = corso;
 			}
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
 		return corsi;
+	}
+
+	public int getPosti(Connection conn, long id) throws DAOException {
+		int posti = 0;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_POSTICORSO);
+			ps.setLong(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next())
+				posti = rs.getInt(1);
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return posti;
 	}
 }

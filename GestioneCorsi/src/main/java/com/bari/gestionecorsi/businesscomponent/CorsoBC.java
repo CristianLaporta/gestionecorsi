@@ -36,4 +36,8 @@ public class CorsoBC {
 	public Corso[] getCorsi() throws DAOException {
 		return CorsoDAO.getFactory().getAll(conn);
 	}
+	
+	public int getPostiCorso(long id) throws DAOException {
+		return CorsoDAO.getFactory().getPosti(conn, id);
+	}
 }

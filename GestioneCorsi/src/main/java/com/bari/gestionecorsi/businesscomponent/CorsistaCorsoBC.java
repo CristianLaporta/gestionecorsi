@@ -19,6 +19,10 @@ public class CorsistaCorsoBC {
 		public void create(CorsistaCorso corsistaCorso) throws DAOException, ClassNotFoundException, IOException {	
 			CorsistaCorsoDAO.getFactory().create(conn, corsistaCorso); 
 		}
+		
+		public int getPostiOccupati(long id) throws DAOException {
+			return CorsistaCorsoDAO.getFactory().getPostiOccupati(conn, id);
+		}
 
 	
 

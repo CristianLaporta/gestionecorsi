@@ -22,6 +22,7 @@ data_fine_corso date not null,
 costo_corso int not null,
 commenti_corso varchar2(500) not null,
 aula_corso varchar2(5),
+posti_disponibili int default 50,
 id_docente int,
 constraint p_id_corso primary key(id_corso),
 constraint f_id_docente foreign key(id_docente) references docente(id_docente));

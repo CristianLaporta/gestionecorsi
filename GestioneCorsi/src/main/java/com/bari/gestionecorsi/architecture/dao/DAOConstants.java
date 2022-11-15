@@ -18,15 +18,19 @@ public interface DAOConstants {
 	
 	// -----------CORSO--------------
 	String SELECT_CORSO = "select * from corso";
-	String UPDATE_CORSO = "update corso set nome_corso = ?, data_inizio_corso = ?, data_fine_corso = ? , costo_corso = ? , commenti_corso = ?, aula_corso = ?, id_docente = ? where id_corso=?";
+	String UPDATE_CORSO = "update corso set nome_corso = ?, data_inizio_corso = ?, data_fine_corso = ? , costo_corso = ? , commenti_corso = ?, aula_corso = ?, posti_disponibili =?, id_docente = ? where id_corso=?";
 	String DELETE_CORSO = "delete from corso where id_corso=?";
 	String SELECT_CORSO_BYID = "select * from corso where id_corso = ?";
+	String SELECT_POSTICORSO = "select posti_disponibili from corso where id_corso=?";
 	
 	//------CORSISTACORSO---------
 	String SELECT_CORSISTACORSO= "select * from corsista_corso";
+	String SELECT_POSTIOCCUPATI = "select count(id_corso) from corsista_corso where id_corso = ?";
 	
 	//----------SEQUENZE----------
 	String SELECT_CORSISTASEQ = "select corsista_seq.nextval from dual"; // per recuperare id sequenza
 	String SELECT_CORSOSEQ = "select corso_seq.nextval from dual";
+	
+	
 
 }
