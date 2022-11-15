@@ -6,13 +6,17 @@ import java.sql.Connection;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import com.bari.gestionecorsi.architecture.dao.DAOException;
 import com.bari.gestionecorsi.architecture.dao.DocenteDAO;
 import com.bari.gestionecorsi.architecture.dbaccess.DBAccess;
 import com.bari.gestionecorsi.businesscomponent.model.Docente;
 
+@TestMethodOrder(OrderAnnotation.class)
 class DocenteDAOTest {
 
 	private static Docente docente;
@@ -22,23 +26,19 @@ class DocenteDAOTest {
 	static void setUpBeforeClass() throws Exception {
 		conn = DBAccess.getConnection();
 		docente = new Docente();
-		docente.setIdDocente(5);
-		docente.setNomeDocente("Marco");
+		docente.setIdDocente(4);
+		docente.setNomeDocente("Maria");
 		docente.setCognomeDocente("Rossi");
-		docente.setCvDocente("Docente Java");
+		docente.setCvDocente("Docente Angular");
 	}
 	
 	@Test
+	@Order(1)
 	void testUpdate() {
 		try {
-			docente = new Docente();
-			docente.setIdDocente(5);
-			docente.setNomeDocente("Marco");
-			docente.setCognomeDocente("Rossi");
-			docente.setCvDocente("Docente Angular");
 			DocenteDAO.getFactory().update(conn, docente);
-			System.out.println("Corso aggiornato:");
-			Docente d = DocenteDAO.getFactory().getById(conn, 5);
+			System.out.println("Docente aggiornato:");
+			Docente d = DocenteDAO.getFactory().getById(conn, 4);
 			System.out.println(d.toString());
 		} catch (Exception exc) {
 			exc.printStackTrace();
@@ -48,6 +48,7 @@ class DocenteDAOTest {
 	
 	
 	@Test
+	@Order(2)
 	void testGetAll() {
 		try {
 			Docente[] docenti = DocenteDAO.getFactory().getAll(conn);
@@ -62,14 +63,11 @@ class DocenteDAOTest {
 	static void tearDownAfterClass() throws Exception {
 		try {
 			DocenteDAO.getFactory().delete(conn, docente);
-			System.out.println("Corso eliminato");
+			System.out.println("Docente eliminato");
 			DBAccess.closeConnection();
 		} catch (DAOException exc) {
 			exc.printStackTrace();
 			fail("Motivo: " + exc.getMessage());
 		}
 	}
-
-	
-
 }

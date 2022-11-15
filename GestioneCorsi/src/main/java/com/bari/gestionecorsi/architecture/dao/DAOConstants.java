@@ -12,7 +12,7 @@ public interface DAOConstants {
 	// -----------DOCENTE--------------
 	String SELECT_DOCENTE = "select * from docente";
 	String UPDATE_DOCENTE = "update docente set nome_docente = ? , cognome_docente = ? , cv_docente = ? where id_docente=?";
-	String DELETE_DOCENTE = "delete from corsista where id_corsista=?";
+	String DELETE_DOCENTE = "delete from docente where id_docente=?";
 	String SELECT_DOCENTE_BYID = "select * from docente where id_docente = ?";
 
 	

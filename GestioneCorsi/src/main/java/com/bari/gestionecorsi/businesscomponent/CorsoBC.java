@@ -6,6 +6,7 @@ import java.sql.Connection;
 import com.bari.gestionecorsi.architecture.dao.CorsoDAO;
 import com.bari.gestionecorsi.architecture.dao.DAOException;
 import com.bari.gestionecorsi.architecture.dbaccess.DBAccess;
+import com.bari.gestionecorsi.businesscomponent.idgenerator.CorsoIdGenerator;
 import com.bari.gestionecorsi.businesscomponent.model.Corso;
 
 public class CorsoBC {
@@ -15,7 +16,8 @@ public class CorsoBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	public void create(Corso corso) throws DAOException {
+	public void create(Corso corso) throws DAOException, ClassNotFoundException, IOException {
+		corso.setIdCorso(CorsoIdGenerator.getInstance().getNextId());
 		CorsoDAO.getFactory().create(conn, corso);
 	}
 	
@@ -23,7 +25,11 @@ public class CorsoBC {
 		CorsoDAO.getFactory().update(conn, corso);
 	}
 	
-	public Corso findById(long id) throws DAOException {
+	public void delete(Corso corso) throws DAOException {
+		CorsoDAO.getFactory().delete(conn, corso);
+	}
+	
+	public Corso getById(long id) throws DAOException {
 		return CorsoDAO.getFactory().getById(conn, id);
 	}
 	

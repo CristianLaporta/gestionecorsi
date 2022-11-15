@@ -16,12 +16,11 @@ public class DocenteBC {
 		conn = DBAccess.getConnection();
 	}
 	
-	
-	public void Update(Docente docente) throws DAOException, ClassNotFoundException, IOException {	
+	public void update(Docente docente) throws DAOException, ClassNotFoundException, IOException {	
 		DocenteDAO.getFactory().update(conn, docente); 
 	}
 
-	public Docente[] getArticoli() throws DAOException {
+	public Docente[] getDocenti() throws DAOException {
 		return DocenteDAO.getFactory().getAll(conn);
 	}
 	

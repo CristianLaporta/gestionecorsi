@@ -1,5 +1,94 @@
 package com.bari.gestionecorsi.businesscomponent.facade;
 
-public class AdminFacade {
+import java.io.IOException;
 
+import com.bari.gestionecorsi.architecture.dao.DAOException;
+import com.bari.gestionecorsi.businesscomponent.CorsistaBC;
+import com.bari.gestionecorsi.businesscomponent.CorsistaCorsoBC;
+import com.bari.gestionecorsi.businesscomponent.CorsoBC;
+import com.bari.gestionecorsi.businesscomponent.DocenteBC;
+import com.bari.gestionecorsi.businesscomponent.model.Corsista;
+import com.bari.gestionecorsi.businesscomponent.model.CorsistaCorso;
+import com.bari.gestionecorsi.businesscomponent.model.Corso;
+import com.bari.gestionecorsi.businesscomponent.model.Docente;
+
+public class AdminFacade {
+	private static AdminFacade aF;
+	private CorsistaBC corsista;
+	private CorsoBC corso;
+	private DocenteBC docente; 
+	private CorsistaCorsoBC corsistacorso;
+	
+	private AdminFacade() {}
+	
+	public static AdminFacade getInstance() {
+		if(aF == null)
+			aF = new AdminFacade();
+		return aF;
+	}
+	
+	public void createOrUpdate(Corsista c) throws ClassNotFoundException, DAOException, IOException {
+		corsista = new CorsistaBC();
+		corsista.createOrUpdate(c);
+	}
+	
+	public void delete(Corsista c) throws DAOException, ClassNotFoundException, IOException {
+		corsista = new CorsistaBC();
+		corsista.delete(c);
+	}
+	
+	public Corsista[] getCorsisti() throws ClassNotFoundException, DAOException, IOException {
+		corsista = new CorsistaBC();
+		return corsista.getAll();
+	}
+	
+	public Corsista findById(long id) throws ClassNotFoundException, DAOException, IOException {
+		corsista = new CorsistaBC();
+		return corsista.getById(id);
+	}
+	
+	public void create(Corso c) throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		corso.create(c);
+	}
+	
+	public void update(Corso c) throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		corso.update(c);
+	}
+	
+	public void delete(Corso c) throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		corso.delete(c);
+	}
+	
+	public Corso[] getCorsi() throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		return corso.getCorsi();
+	}
+	
+	public Corso getById(long id) throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		return corso.getById(id);
+	}
+	
+	public void update(Docente d) throws ClassNotFoundException, DAOException, IOException {
+		docente = new DocenteBC();
+		docente.update(d);
+	}
+	
+	public Docente[] getDocenti() throws ClassNotFoundException, DAOException, IOException {
+		docente = new DocenteBC();
+		return docente.getDocenti();
+	}
+	
+	public Docente getDocenteById(long id) throws ClassNotFoundException, DAOException, IOException {
+		docente = new DocenteBC();
+		return docente.findById(id);
+	}
+	
+	public void create(CorsistaCorso c) throws ClassNotFoundException, DAOException, IOException {
+		corsistacorso = new CorsistaCorsoBC();
+		corsistacorso.create(c);
+	}
 }
