@@ -18,7 +18,7 @@
             <div class="container-fluid">
                 <img id="logo" src="assets/img/logo.png" alt="">
                 <div class="nav">
-                    <p class="link"> <a href="index.html">Home</a><i class=" bi bi-arrow-right-circle-fill"></i></p>
+                    <p class="link"> <a href="index.jsp">Home</a><i class=" bi bi-arrow-right-circle-fill"></i></p>
                 </div>
             </div>
         </nav>
@@ -26,10 +26,10 @@
     <div class="banner">
         <div class="gradient"></div>
         <video autoplay muted loop id="myVideo">
-            <source src="/assets/video/backgroundabout.mp4" type="video/mp4">
+            <source src="assets/video/backgroundabout.mp4" type="video/mp4">
         </video>
     </div>
-    <img class="img" src="/assets/img/bari.png" >
+    <img class="img" src="assets/img/bari.png" >
     
     <div class="card" style="width: 40%;">
         <div class="card-body">

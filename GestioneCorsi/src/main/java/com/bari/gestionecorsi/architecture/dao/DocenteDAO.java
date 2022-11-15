@@ -13,22 +13,12 @@ import com.bari.gestionecorsi.businesscomponent.model.Docente;
 
 
 public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOConstants{
-	
+
+	private DocenteDAO() throws DAOException {}
+
 	public static DocenteDAO getFactory() throws DAOException {
 		return new DocenteDAO();
 	}
-
-	private CachedRowSet rowSet;
-	
-	private DocenteDAO() throws DAOException {
-		
-		try {
-			rowSet = RowSetProvider.newFactory().createCachedRowSet();
-		} catch (SQLException e) {
-			throw new DAOException(e);
-		}
-	}
-
 
 	@Override
 	public void update(Connection conn, Docente entity) throws DAOException {

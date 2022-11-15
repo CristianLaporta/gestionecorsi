@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <img id="logo" src="assets/img/logo.png" alt="">
                 <div class="nav">
-                    <p class="link"> <a href="login.html">Accedi</a><i class=" bi bi-arrow-right-circle-fill"></i></p>
+                    <p class="link"> <a href="login.jsp">Accedi</a><i class=" bi bi-arrow-right-circle-fill"></i></p>
                 </div>
             </div>
         </nav>
@@ -31,17 +31,17 @@
         <div class="banner">
             <div class="gradient"></div>
             <video autoplay muted loop id="myVideo">
-                <source src="/assets/video/background.mp4" type="video/mp4">
+                <source src="assets/video/background.mp4" type="video/mp4">
             </video>
             <h1>Progetto Gestione corsi </h1>
             <h3>Progetto realizzato in Java in modalit&agrave; monolitica, in merito alla gestione di alcuni corsi da parte
-                di docenti e corsisti. <br> <br> <button type="button" onclick="window.location.href='about.html'"  class="btn btn-outline-primary">Sviluppatori</button>
+                di docenti e corsisti. <br> <br> <button type="button" onclick="window.location.href='about.jsp'"  class="btn btn-outline-primary">Sviluppatori</button>
             </h3>
     
         </div>
     </body>
     <footer>
-        <p class="footerc">©Copyright by Betacom, sede: Bari</p>
+        <p class="footerc">&copy;Copyright by Betacom, sede: Bari</p>
     </footer>
     
     </html>
