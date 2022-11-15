@@ -100,10 +100,10 @@ public class DocenteDAO extends GenericDAOAdapter<Docente> implements DAOConstan
 			rs.beforeFirst();
 			for(int i = 0; rs.next(); i++) {
 				Docente docente = new Docente();
-				docente .setIdDocente(rs.getLong(1));
-				docente .setNomeDocente(rs.getString(2));
-				docente .setCognomeDocente( rs.getString(3));
-				docente .setCvDocente(rs.getString(4));
+				docente.setIdDocente(rs.getLong(1));
+				docente.setNomeDocente(rs.getString(2));
+				docente.setCognomeDocente( rs.getString(3));
+				docente.setCvDocente(rs.getString(4));
 				docenti[i] = docente;
 			}
 			

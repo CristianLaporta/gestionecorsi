@@ -10,7 +10,7 @@ import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
 
 import com.bari.gestionecorsi.businesscomponent.model.Corsista;
-import com.bari.gestionecorsi.businesscomponent.model.Corso;
+
 
 
 public class CorsistaDAO implements GenericDAO<Corsista>, DAOConstants{
