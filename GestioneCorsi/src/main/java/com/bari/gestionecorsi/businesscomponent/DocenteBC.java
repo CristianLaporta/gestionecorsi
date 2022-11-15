@@ -16,6 +16,7 @@ public class DocenteBC {
 		conn = DBAccess.getConnection();
 	}
 	
+	
 	public void Update(Docente docente) throws DAOException, ClassNotFoundException, IOException {	
 		DocenteDAO.getFactory().update(conn, docente); 
 	}
