@@ -36,8 +36,8 @@ constraint p_id_corsista primary key(id_corsista));
 create table corsista_corso(
 id_corsista int,
 id_corso int,
-constraint f_id_corsista foreign key(id_corsista) references corsista(id_corsista),
-constraint f_id_corso foreign key(id_corso) references corso(id_corso),
+constraint f_id_corsista foreign key(id_corsista) references corsista(id_corsista) on delete cascade,
+constraint f_id_corso foreign key(id_corso) references corso(id_corso) on delete cascade,
 constraint p_cc primary key(id_corsista, id_corso));
 
 --Sequenze
