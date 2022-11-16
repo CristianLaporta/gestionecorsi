@@ -33,8 +33,8 @@
     
     <div class="card" style="width: 40%;">
         <div class="card-body">
-            <h5 class="card-title">Contribuenti al progetto</h5>
-            <p class="card-text">Laporta Cristian : Frontend<br>tizio caio: test<br>tizio caio: test<br>tizio caio: test
+            <h5 class="card-title">Contribuenti al progetto:</h5>
+            <p class="card-text">Laporta Cristian<br>Luca Sorrento<br>Maria Rosaria Greco<br>Michelangelo Loiacono<br>Vito Debellis<br>Angelo Rapisarda<br>Lorenzo Greco<br>Cristian Laporta<br>Alessio Tasco<br>
             </p>
         </div>
     </div>
