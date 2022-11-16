@@ -60,6 +60,6 @@
       }
       
       a.active {
-      	color: var(--bs-link-color)!important;
+      	color: var(--bs-link-color) !important;
       }
  
