@@ -32,7 +32,7 @@ public class ControlloLogin extends HttpServlet {
 					if(adminpass.equals(password)) {
 						contatore = 5;
 						session.setAttribute("admin", username);
-						response.sendRedirect("admin/admin.jsp");
+						response.sendRedirect("admin.jsp");
 					} else {
 						contatore--;
 						System.out.println("valore contatore: " + contatore);
