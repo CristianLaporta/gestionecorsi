@@ -235,3 +235,33 @@ p {
   width: 300px;
   margin-left: 50px;
 }
+.colorerror{
+  color: rgba(198, 198, 198, 0.873);
+  font-weight: 900;
+}
+.thome{
+  color: rgba(198, 198, 198, 0.873);
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  right: 20px;
+}
+a {
+  text-decoration: none;
+  color: rgb(161, 161, 161);
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
