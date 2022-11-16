@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<link rel="stylesheet" href="/css/login.css">
+	<link rel="stylesheet" href="css/login.css">
 	<body class="align">
 		<div class="gradient"></div>
 		<video autoplay muted loop id="myVideo">
-			<source src="/assets/video/backgroundlogin.mp4" type="video/mp4">
+			<source src="assets/video/backgroundlogin.mp4" type="video/mp4">
 		</video>
 		<div class="grid">
 	  
 		  <form action="" method="POST" class="form login">
-	  <img class="img" src="/assets/img/logo.png" alt="">
+	  <img class="img" src="assets/img/logo.png" alt="">
 			<div class="form__field">
 			  <label for="login__username"><svg class="icon">
 				  <use xlink:href="#icon-user"></use>
