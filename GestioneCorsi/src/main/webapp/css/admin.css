@@ -1,0 +1,47 @@
+.link {
+    font-weight: 500;
+    color: rgb(30, 35, 62);
+    margin-top: 5px;
+    margin-left: 40px;
+    }
+    .nav {
+        position: absolute;
+        right: 20px;
+    
+    }
+    .navd {
+        position: absolute;
+        left: 200px;
+    display: flex;
+    }
+    #logo {
+        width: 150px;
+        margin-left: 30px;
+    }
+    
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.798);
+        height: 80px;
+    }
+    body{
+        background-color: rgb(247, 231, 204);
+    }
+    a {
+        text-decoration: none;
+        color: rgb(46, 45, 45);
+      }
+      a:link {
+        text-decoration: none;
+      }
+      
+      a:visited {
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: none;
+      }
+      
+      a:active {
+        text-decoration: none;
+      }
