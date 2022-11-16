@@ -26,10 +26,7 @@
 			<img id="logo" src="assets/img/logo.png" alt="">
 			<div class="nav">
 				<p class="link">
-					<a href="index.jsp">Home</a>
-				</p>
-				<p class="link">
-					<a href="logout.jsp">Logout</a>
+					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
 				</p>
 			</div>
 			<div class="navd">
