@@ -29,12 +29,15 @@
 					<a href="index.jsp">Home</a>
 				</p>
 				<p class="link">
-					<a href="#">Logout</a>
+					<a href="logout.jsp">Logout</a>
 				</p>
 			</div>
 			<div class="navd">
 				<p class="link">
 					<a href="inserisci.jsp">Inserisci Corsista</a>
+				</p>
+				<p class="link">
+					<a class="active" href="admin.jsp">Visualizza Statistiche</a>
 				</p>
 				<p class="link">
 					<a href="#">Elimina Corsi</a>

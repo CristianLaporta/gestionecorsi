@@ -34,21 +34,32 @@ public class ControlloLogin extends HttpServlet {
 						session.setAttribute("admin", username);
 						response.sendRedirect("admin.jsp");
 					} else {
-						contatore--;
-						System.out.println("valore contatore: " + contatore);
-						session.setAttribute("cont", contatore);
-						
-						if(contatore == 0){
-							response.sendRedirect("accessonegato.jsp");
-						} else {
-							response.sendRedirect("login.jsp");
-						}
+						decrementoContatore(session, response);
 					}
+				} else {
+					decrementoContatore(session, response);
 				}
 			} catch(Exception exc) {
 				exc.printStackTrace();
 				throw new ServletException(exc.getMessage());
 			}
+		}
+	}
+	
+	private void decrementoContatore(HttpSession session, HttpServletResponse response) throws ServletException {
+		contatore--;
+		session.setAttribute("cont", contatore);
+		try {
+			if(contatore == 0){
+				response.sendRedirect("accessonegato.jsp");
+				session.invalidate();
+				contatore = 5;
+			} else {
+				response.sendRedirect("login.jsp");
+			}
+		} catch(Exception exc) {
+			exc.printStackTrace();
+			throw new ServletException(exc.getMessage());
 		}
 	}
 
