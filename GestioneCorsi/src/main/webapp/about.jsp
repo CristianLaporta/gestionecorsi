@@ -40,5 +40,5 @@
     </div>
     </body>
     <footer>
-        <p class="footerc">©Copyright by Betacom, sede: Bari</p>
+        <p class="footerc">&copy;Copyright by Betacom, sede: Bari</p>
     </footer>
