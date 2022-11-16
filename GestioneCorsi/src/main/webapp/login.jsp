@@ -1,89 +1,59 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- CSS only -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-	rel="stylesheet">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/about.css">
-<title>Gestione Corsi</title>
-</head>
-<link
-	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css">
-<link rel="stylesheet" href="css/login.css">
-<script
-	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top navbar">
-			<div class="container-fluid">
-				<img id="logo" src="assets/img/logo.png" alt="">
-				<div class="nav">
-					<p class="link">
-						<a href="index.jsp">Home</a><i
-							class=" bi bi-arrow-right-circle-fill"></i>
-					</p>
-				</div>
+	<link rel="stylesheet" href="/css/login.css">
+	<body class="align">
+		<div class="gradient"></div>
+		<video autoplay muted loop id="myVideo">
+			<source src="/assets/video/backgroundlogin.mp4" type="video/mp4">
+		</video>
+		<div class="grid">
+	  
+		  <form action="" method="POST" class="form login">
+	  <img class="img" src="/assets/img/logo.png" alt="">
+			<div class="form__field">
+			  <label for="login__username"><svg class="icon">
+				  <use xlink:href="#icon-user"></use>
+				</svg><span class="hidden">Username</span></label>
+			  <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
 			</div>
-		</nav>
-	</header>
-	<div class="gradient"></div>
-	<video autoplay muted loop id="myVideo">
-		<source src="assets/video/backgroundlogin.mp4" type="video/mp4">
-	</video>
-	<div id="login">
-		<div class="container">
-			<div id="login-row"
-				class="row justify-content-center align-items-center">
-				<div id="login-column" class="col-md-6">
-					<div id="login-box" class="col-md-12">
-						<form id="login-form" class="form needs-validation" novalidate action="/<%=application.getServletContextName()%>/controlloLogin" method="post">
-							<img class="logo" src="assets/img/logo.png" alt="">
-							
-							<%
-								if(session.getAttribute("cont") != null){	
-							%>
-							<div class="control_label col-md-12 is-invalid">
-								Username/password errate, tentativi restanti: <%=session.getAttribute("cont") %>
-							</div>
-							
-						<%
-								}
-						%>
-							
-							<div class="form-group">
-								<label for="username" class="text-info ara">Username:</label><br>
-								<input type="text" name="username" id="username"
-									class="form-control">
-							</div>
-							<div class="form-group">
-								<label for="password" class="text-info ara">Password:</label><br>
-								<input type="password" name="password" id="password"
-									class="form-control">
-							</div>
-							<div class="form-group">
-								<input type="submit" name="submit" class="btn btn-info btn-md"
-									value="Accedi">
-							</div>
-							
-						</form>
-					</div>
-				</div>
+	  
+			<div class="form__field">
+			  <label for="login__password"><svg class="icon">
+				  <use xlink:href="#icon-lock"></use>
+				</svg><span class="hidden">Password</span></label>
+			  <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
 			</div>
+	  
+			<div class="form__field">
+			  <input type="submit" value="Accedi">
+			</div>
+	  
+		  </form>
+						
+		  <%
+		  if(session.getAttribute("cont") != null){	
+	  %>
+	  <div>
+		  Username/password errate, tentativi restanti: <%=session.getAttribute("cont") %>
+	  </div>
+	  
+	<%
+		  }
+	%>
+		 
+	  
 		</div>
-	</div>
-</body>
+	  
+		<svg xmlns="http://www.w3.org/2000/svg" class="icons">
+		  <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
+			<path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293H245q-52 0-84.5-37.5T128 1024V896q0-53 32.5-90.5T245 768h704L656 474q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" />
+		  </symbol>
+		  <symbol id="icon-lock" viewBox="0 0 1792 1792">
+			<path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+		  </symbol>
+		  <symbol id="icon-user" viewBox="0 0 1792 1792">
+			<path d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
+		  </symbol>
+		</svg>
+	  
+	  </body>
