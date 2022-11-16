@@ -24,7 +24,9 @@
         height: 80px;
     }
     body{
-        background-color: rgb(247, 231, 204);
+        background: rgba(127, 146, 253, 0.18);
+        
+        
     }
     a {
         text-decoration: none;
@@ -45,3 +47,15 @@
       a:active {
         text-decoration: none;
       }
+      .table{
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        width: 90%;
+        top: 20%;
+        background-color: rgba(255, 255, 255, 0.638);
+        color: rgb(31, 31, 31);
+      }
+ 

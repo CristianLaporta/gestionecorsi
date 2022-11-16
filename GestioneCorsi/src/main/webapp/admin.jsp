@@ -19,7 +19,7 @@
 			<div class="container-fluid">
 				<img id="logo" src="assets/img/logo.png" alt="">
 				<div class="nav">
-					<p class="link"> <a href="login.html">Home</a></p>
+					<p class="link"> <a href="index.jsp">Home</a></p>
 				</div>
 				<div class="navd">
 					<p class="link"> <a href="login.html">Home</a></p>
