@@ -6,3 +6,5 @@ drop table docente cascade constraints;
 
 drop sequence corsista_seq;
 drop sequence corso_seq;
+
+truncate table admin;

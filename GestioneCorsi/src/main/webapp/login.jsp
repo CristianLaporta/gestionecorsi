@@ -51,8 +51,20 @@
 				class="row justify-content-center align-items-center">
 				<div id="login-column" class="col-md-6">
 					<div id="login-box" class="col-md-12">
-						<form id="login-form" class="form" action="" method="post">
+						<form id="login-form" class="form needs-validation" novalidate action="/<%=application.getServletContextName()%>/controlloLogin" method="post">
 							<img class="logo" src="assets/img/logo.png" alt="">
+							
+							<%
+								if(session.getAttribute("cont") != null){	
+							%>
+							<div class="control_label col-md-12 is-invalid">
+								Username/password errate, tentativi restanti: <%=session.getAttribute("cont") %>
+							</div>
+							
+						<%
+								}
+						%>
+							
 							<div class="form-group">
 								<label for="username" class="text-info ara">Username:</label><br>
 								<input type="text" name="username" id="username"
@@ -60,13 +72,14 @@
 							</div>
 							<div class="form-group">
 								<label for="password" class="text-info ara">Password:</label><br>
-								<input type="text" name="password" id="password"
+								<input type="password" name="password" id="password"
 									class="form-control">
 							</div>
 							<div class="form-group">
 								<input type="submit" name="submit" class="btn btn-info btn-md"
 									value="Accedi">
 							</div>
+							
 						</form>
 					</div>
 				</div>
