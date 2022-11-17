@@ -1,7 +1,7 @@
 <%
-	if(session.getAttribute("admin") != null)
-		response.sendRedirect("admin.jsp");
-	else {
+	Cookie ck[] = request.getCookies();
+	if(ck == null){
+		
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -76,5 +76,7 @@
 		</svg>
 </body>
 <%
+} else {
+		response.sendRedirect("admin.jsp");
 	}
 %>

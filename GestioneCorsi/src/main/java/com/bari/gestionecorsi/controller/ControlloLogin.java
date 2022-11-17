@@ -3,6 +3,7 @@ package com.bari.gestionecorsi.controller;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +33,10 @@ public class ControlloLogin extends HttpServlet {
 					if(adminpass.equals(password)) {
 						contatore = 5;
 						session.setAttribute("admin", username);
-						response.sendRedirect("admin.jsp");
+						Cookie ck = new Cookie("userLogged", "true");
+						response.addCookie(ck);
+						System.out.println("NewCookie: " + ck.getName() + " " + ck.getValue());
+						response.sendRedirect("userLogin");
 					} else {
 						decrementoContatore(session, response);
 					}
@@ -62,4 +66,5 @@ public class ControlloLogin extends HttpServlet {
 			throw new ServletException(exc.getMessage());
 		}
 	}
+
 }
