@@ -1,7 +1,9 @@
-<%@page import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%@page import="com.bari.gestionecorsi.businesscomponent.model.Corsista"%>
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.Docente"%>
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.Corso"%>
+<%@page import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%
-	if(session.getAttribute("admin") != null) {
+	if(session.getAttribute("admin") != null){	
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -61,75 +63,45 @@
 	</nav>
 </header>
 <body>
-	<div class="container">
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Statistiche</th>
-					<th scope="col">Valore</th>
-				</tr>
-			</thead>
-			<tbody class="table-group-divider">
-				<%
-				Corsista[] corsisti = null;
-				corsisti = AdminFacade.getInstance().getCorsisti();
-				%>
-				<tr>
-
-					<td>Corsisti totali</td>
-					<td><%=corsisti.length%></td>
-				</tr>
-				<tr>
-
-					<td>Corso più frequentato</td>
-					<td>---</td>
-				</tr>
-				<tr>
-
-					<td>Inizio ultimo corso</td>
-					<td>---</td>
-				</tr>
-
-				<tr>
-
-					<td>Durata media corsi</td>
-					<td>---</td>
-				</tr>
-
-				<tr>
-					<td>Elenco corsisti</td>
-
-					<td><a href="visualizzacorsisti.jsp" class="btn btn-primary">Visualizza</a>
-
-
-					</td>
-
-				</tr>
-
-
-				<tr>
-
-					<td>Corsi con posti disponibili</td>
-					<td>
-						<button type="submit" class="btn btn-danger btn-sm">
-							<span class="glyphicon glyphicon-trash"> Visualizza</span>
-						</button>
-					</td>
-				</tr>
-
-			</tbody>
-
-		</table>
-
-
-
-
-	</div>
+	
+	<a href="admin.jsp" class="btn btn-primary" style="margin-top: 90px; margin-left: 60px;">Torna indietro</a>
+	<table class="table">
+		<thead>
+		
+			<tr>
+				<th>Nome</th>
+				<th>Cognome</th>
+				<th>Precedenti</th>
+				<th>Numero corsi</th>
+			</tr>
+		</thead>
+		<tbody class="table-group-divider">
+		<%
+			Corsista[] corsisti = null;
+			corsisti = AdminFacade.getInstance().getCorsisti();
+			for (Corsista c : corsisti) {
+		%>
+			<tr>
+				<th><%=c.getNomeCorsista() %></th>
+				<th><%=c.getCognomeCorsista() %></th>
+				<th><%=c.getPrecedentiCorsista() %></th>
+				<th><%=AdminFacade.getInstance().getCorsiFreq(c.getIdCorsista()) %></th>
+				
+			</tr>
+		</tbody>
+		<%
+			}
+		%>
+		
+	</table>
+	
+	
+	
+	
 </body>
 </html>
 <%
 	} else {
 		response.sendRedirect("nonloggato.jsp");
-	}
+		}
 %>

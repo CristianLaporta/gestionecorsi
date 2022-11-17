@@ -70,7 +70,7 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
-		return 12-posti;
+		return posti;
 	}
 
 }
