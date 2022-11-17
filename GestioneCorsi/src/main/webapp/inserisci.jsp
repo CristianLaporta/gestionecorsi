@@ -1,6 +1,8 @@
 <%@page import="com.bari.gestionecorsi.businesscomponent.model.Corso"%>
-<%@page import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
+<%@page
+	import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%
+int i = 1;
 if (session.getAttribute("admin") != null) {
 %>
 
@@ -120,10 +122,11 @@ if (session.getAttribute("admin") != null) {
 			</div>
 
 
+
 			<!-- div class row azzera la griglia row crando una nuova riga con una nuova griglia -->
 
 			<div class="row">
-				<div class="col-md-4 col-md-offset-1" style="margin-top:1em;">
+				<div class="col-md-4 col-md-offset-1" style="margin-top: 1em;">
 					<button type="submit" class="btn btn-warning">
 						Registra Corsista&nbsp;&nbsp;<span
 							class="glyphicon glyphicon-send"></span>
