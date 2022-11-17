@@ -1,3 +1,6 @@
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.Docente"%>
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.Corso"%>
+<%@page import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%
 	if(session.getAttribute("admin") != null){	
 %>
@@ -44,8 +47,8 @@
 				<li class="link dropdown">
 					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
-						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
+						<li><a class="dropdown-item" href="gestisciCorsi.jsp">Gestisci Corsi</a></li>
+						<li><a class="dropdown-item" href="inserisciCorsi.jsp">Nuovo Corso</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -53,34 +56,53 @@
 	</nav>
 </header>
 <body>
+	
 	<table class="table">
 		<thead>
 			<tr>
-				<th scope="col">#</th>
-				<th scope="col">First</th>
-				<th scope="col">Last</th>
-				<th scope="col">Handle</th>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Data Inizio</th>
+				<th>Data Fine</th>
+				<th>Costo</th>
+				<th>Commenti</th>
+				<th>Aula</th>
+				<th>Posti Disponibili</th>
+				<th>Nome Docente</th>
+				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody class="table-group-divider">
+		<%
+			Corso[] corsi = null;
+			corsi = AdminFacade.getInstance().getCorsi();
+			for (Corso c : corsi) {
+		%>
 			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>Jacob</td>
-				<td>Thornton</td>
-				<td>@fat</td>
-			</tr>
-			<tr>
-				<th scope="row">3</th>
-				<td colspan="2">Larry the Bird</td>
-				<td>@twitter</td>
+				<th><%=c.getIdCorso() %></th>
+				<th><%=c.getNomeCorso() %></th>
+				<th><%=c.getDataInizioCorso() %></th>
+				<th><%=c.getDataFineCorso() %></th>
+				<th><%=c.getCostoCorso() %></th>
+				<th><%=c.getCommentiCorso() %></th>
+				<th><%=c.getAulaCorso() %></th>
+				<th><%=c.getPostiDisponibili() %></th>
+				<%
+					Docente d = AdminFacade.getInstance().getDocenteById(c.getIdDocente());
+				%>
+				<th><%= d.getNomeDocente() %> </th>
+				<th>
+					<form action="/<%= application.getServletContextName()%>/rimuoviCorso?id=<%= c.getIdCorso() %>" method="post">
+						<button type="submit" class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-trash"> Elimina</span>
+						</button>
+					</form>
+				</th>
 			</tr>
 		</tbody>
+		<%
+			}
+		%>
 	</table>
 </body>
 </html>

@@ -3,6 +3,7 @@
     color: rgb(30, 35, 62);
     margin-top: 5px;
     margin-left: 40px;
+    text-decoration: none;
     }
     .nav {
         position: absolute;
@@ -65,8 +66,10 @@
       }
       
 	.container {
-        margin-left: 35%;
-        margin-top: 250px;
+        margin-top: 150px;
 	}
       
+      ul {
+      	list-style: none;
+      }
  

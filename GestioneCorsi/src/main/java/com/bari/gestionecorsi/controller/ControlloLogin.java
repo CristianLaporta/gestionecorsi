@@ -62,5 +62,4 @@ public class ControlloLogin extends HttpServlet {
 			throw new ServletException(exc.getMessage());
 		}
 	}
-
 }

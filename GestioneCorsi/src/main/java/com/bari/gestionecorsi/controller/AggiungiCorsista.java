@@ -47,7 +47,6 @@ public class AggiungiCorsista extends HttpServlet {
 	private Corsista getCorsista(HttpServletRequest request, HttpServletResponse response) {
 		Corsista corsista = null;
 		try {
-			long id = 0;
 			String nome = request.getParameter("nome_corsista");
 			String cognome = request.getParameter("cognome_corsista");
 			String precedenti = request.getParameter("precedenti");
