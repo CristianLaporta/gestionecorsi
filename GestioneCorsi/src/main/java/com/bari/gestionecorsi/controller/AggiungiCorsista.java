@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bari.gestionecorsi.businesscomponent.facade.AdminFacade;
 import com.bari.gestionecorsi.businesscomponent.model.Corsista;
+import com.bari.gestionecorsi.businesscomponent.model.CorsistaCorso;
 import com.bari.gestionecorsi.businesscomponent.utilities.Validator;
 
 /**
@@ -19,21 +20,30 @@ import com.bari.gestionecorsi.businesscomponent.utilities.Validator;
 public class AggiungiCorsista extends HttpServlet {
 	private static final long serialVersionUID = 2157686077894055323L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		Corsista corsista = getCorsista(request, response);
+		CorsistaCorso cors = new CorsistaCorso();
+		long id_corso = Long.parseLong(request.getParameter("corso"));
+
 		if (corsista != null) {
 			try {
 				AdminFacade.getInstance().createOrUpdate(corsista);
+				if (id_corso != 0) {
+					cors.setIdCorsista(corsista.getIdCorsista());
+					cors.setIdCorso(id_corso);
+					AdminFacade.getInstance().create(cors);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				throw new ServletException(e.getMessage());
 			}
 			response.sendRedirect("admin.jsp");
 		}
-		
+
 	}
-	
+
 	private Corsista getCorsista(HttpServletRequest request, HttpServletResponse response) {
 		Corsista corsista = null;
 		try {
@@ -41,27 +51,22 @@ public class AggiungiCorsista extends HttpServlet {
 			String nome = request.getParameter("nome_corsista");
 			String cognome = request.getParameter("cognome_corsista");
 			String precedenti = request.getParameter("precedenti");
-			
-			if(Validator.getInstance().validString(nome)==true && Validator.getInstance().validString(cognome) == true) {
-				System.out.println(id);
-				System.out.println(nome);
-				System.out.println(cognome);
-				System.out.println(precedenti);
+
+			if (Validator.getInstance().validString(nome) == true
+					&& Validator.getInstance().validString(cognome) == true) {
 				corsista = new Corsista();
 				corsista.setNomeCorsista(nome);
 				corsista.setCognomeCorsista(cognome);
 				corsista.setPrecedentiCorsista(precedenti);
-			}else {
+			} else {
 				System.out.println("error");
 				response.sendRedirect("inserisci.jsp");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return corsista;
 	}
-	
-	
 
 }

@@ -106,8 +106,8 @@ if (session.getAttribute("admin") != null) {
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <select class="form-select"
-							aria-label="Default select example">
-							<option selected disabled>Corsi disponibili</option>
+							aria-label="Default select example" name="corso">
+							<option selected disabled >Corsi disponibili</option>
 							<%
 							Corso[] corsi = AdminFacade.getInstance().getCorsi();
 							for (Corso c : corsi) {
