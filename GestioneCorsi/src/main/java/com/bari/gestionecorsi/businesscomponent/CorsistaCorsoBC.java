@@ -23,6 +23,10 @@ public class CorsistaCorsoBC {
 		public int getPostiOccupati(long id) throws DAOException {
 			return CorsistaCorsoDAO.getFactory().getPostiOccupati(conn, id);
 		}
+		
+		public int getCorsiFreq(long id) throws DAOException {
+			return CorsistaCorsoDAO.getFactory().getCorsiFreq(conn, id);
+		}
 
 	
 

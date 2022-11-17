@@ -96,4 +96,9 @@ public class AdminFacade {
 		corsistacorso = new CorsistaCorsoBC();
 		return corsistacorso.getPostiOccupati(id);
 	}
+	
+	public int getCorsiFreq(long id) throws DAOException, ClassNotFoundException, IOException {
+		corsistacorso = new CorsistaCorsoBC();
+		return corsistacorso.getPostiOccupati(id);
+	}
 }
