@@ -23,6 +23,7 @@ if (session.getAttribute("admin") != null) {
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,17 +39,21 @@ if (session.getAttribute("admin") != null) {
 					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
 				</p>
 			</div>
-			<div class="navd">
-				<p class="link">
+			<ul class="navd">
+				<li class="link">
 					<a class="active" href="inserisci.jsp">Inserisci Corsista</a>
-				</p>
-				<p class="link">
-					<a href="admin.jsp">Visualizza Statistiche</a>
-				</p>
-				<p class="link">
-					<a href="#">Elimina Corsi</a>
-				</p>
-			</div>
+				</li>
+				<li class="link">
+					<a  href="admin.jsp">Visualizza Statistiche</a>
+				</li>
+				<li class="link dropdown">
+					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
+						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 	</nav>
 </header>
