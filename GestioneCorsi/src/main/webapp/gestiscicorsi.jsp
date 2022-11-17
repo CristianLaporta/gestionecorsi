@@ -53,8 +53,8 @@
 				<li class="link dropdown">
 					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="gestisciCorsi.jsp">Gestisci Corsi</a></li>
-						<li><a class="dropdown-item" href="inserisciCorsi.jsp">Nuovo Corso</a></li>
+						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
+						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
 					</ul>
 				</li>
 			</ul>
