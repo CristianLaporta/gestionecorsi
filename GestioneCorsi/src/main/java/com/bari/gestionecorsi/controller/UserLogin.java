@@ -24,8 +24,6 @@ public class UserLogin extends HttpServlet {
 		Cookie ck[] = request.getCookies();
 		if (ck != null) {
 			for (int i = 0; i < ck.length; i++) {
-				ck[i].getName();
-				ck[i].getValue();
 				System.out.println("Cookies: " + ck[i].getName() + " " + ck[i].getValue());
 				if (ck[i].getName().equals("userLogged") && ck[i].getValue().equals("true")) {
 					System.out.println("Benvenuto: " + ck[i].getName() + " " + ck[i].getValue());

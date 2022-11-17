@@ -1,6 +1,6 @@
-<%--
-	if(session.getAttribute("admin") != null){	
---%>
+<%
+	if(session.getAttribute("admin") != null) {
+%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
 					</a>
 				</p>
 				<p class="link">
-					<a href="/<%=application.getServletContextName()%>/logOut">Logout <i class="bi bi-door-closed-fill"></i></a>
+					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
 				</p>
 			</div>
 			<ul class="navd">
@@ -90,8 +90,8 @@
 	</table>
 </body>
 </html>
-<%--
+<%
 	} else {
 		response.sendRedirect("nonloggato.jsp");
-		}
---%>
+	}
+%>

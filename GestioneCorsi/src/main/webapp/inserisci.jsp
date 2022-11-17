@@ -2,7 +2,7 @@
 <%@page
 	import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%
-if (session.getAttribute("admin") != null) {
+	if(session.getAttribute("admin") != null) {
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -159,7 +159,5 @@ if (session.getAttribute("admin") != null) {
 </body>
 </html>
 <%
-} else {
-response.sendRedirect("nonloggato.jsp");
-}
+	}
 %>

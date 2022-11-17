@@ -20,7 +20,7 @@ public class DestroyCookie extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());		
 
-			Cookie ck = new Cookie("userLogged", "false");
+			Cookie ck = new Cookie("userLogged", "");
 	        response.addCookie(ck); 
 		        System.out.println("CookieDestroied: " + ck.getName() + " " + ck.getValue());
 		        	response.sendRedirect("index.jsp");
