@@ -56,5 +56,21 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 		}
 		return 12-posti;
 	}
+	
+	public int getCorsiFreq(Connection conn, long id) throws DAOException {
+		int posti = 0;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_NUMCORSI);
+			ps.setLong(1, id);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next())
+				posti = rs.getInt(1);
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return 12-posti;
+	}
 
 }
