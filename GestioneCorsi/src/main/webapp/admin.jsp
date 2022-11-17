@@ -31,6 +31,12 @@
 			<img id="logo" src="assets/img/logo.png" alt="">
 			<div class="nav">
 				<p class="link">
+					<a href="#">
+						<i class="bi bi-person-circle"></i>
+						 <%= session.getAttribute("admin") %>
+					</a>
+				</p>
+				<p class="link">
 					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
 				</p>
 			</div>
