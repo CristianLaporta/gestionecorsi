@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bari.gestionecorsi.businesscomponent.security.Algoritmo;
-import com.bari.gestionecorsi.businesscomponent.utilities.Login;
+import com.bari.gestionecorsi.businesscomponent.utilities.Login; 
 
 @WebServlet("/controlloLogin")
 public class ControlloLogin extends HttpServlet {
