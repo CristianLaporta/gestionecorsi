@@ -2,7 +2,6 @@
 <%@page
 	import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%
-int i = 1;
 if (session.getAttribute("admin") != null) {
 %>
 
@@ -23,7 +22,8 @@ if (session.getAttribute("admin") != null) {
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,9 +36,7 @@ if (session.getAttribute("admin") != null) {
 			<img id="logo" src="assets/img/logo.png" alt="">
 			<div class="nav">
 				<p class="link">
-					<a href="#">
-						<i class="bi bi-person-circle"></i>
-						 <%= session.getAttribute("admin") %>
+					<a href="#"> <i class="bi bi-person-circle"></i> <%=session.getAttribute("admin")%>
 					</a>
 				</p>
 				<p class="link">
@@ -46,19 +44,18 @@ if (session.getAttribute("admin") != null) {
 				</p>
 			</div>
 			<ul class="navd">
-				<li class="link">
-					<a class="active" href="inserisci.jsp">Inserisci Corsista</a>
+				<li class="link"><a class="active" href="inserisci.jsp">Inserisci
+						Corsista</a></li>
+				<li class="link"><a href="admin.jsp">Visualizza Statistiche</a>
 				</li>
-				<li class="link">
-					<a  href="admin.jsp">Visualizza Statistiche</a>
-				</li>
-				<li class="link dropdown">
-					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
+				<li class="link dropdown"><a class="dropdown-toggle"
+					role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
-						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
-					</ul>
-				</li>
+						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci
+								Corsi</a></li>
+						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo
+								Corso</a></li>
+					</ul></li>
 			</ul>
 		</div>
 	</nav>
@@ -118,13 +115,26 @@ if (session.getAttribute("admin") != null) {
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <select class="form-select"
 							aria-label="Default select example" name="corso">
-							<option selected disabled >Corsi disponibili</option>
+							<option selected disabled>Corsi disponibili</option>
 							<%
 							Corso[] corsi = AdminFacade.getInstance().getCorsi();
 							for (Corso c : corsi) {
+								int posti = AdminFacade.getInstance().getPostiOccupati(c.getIdCorso());
+								if (posti > 0) {
 							%>
-							<option value="<%=c.getIdCorso()%>"><%=c.getNomeCorso()%></option>
+							<option value="<%=c.getIdCorso()%>"><%=c.getNomeCorso()%>
+								(Posti disponibili:
+								<%=posti%>)
+							</option>
 							<%
+							} else {
+							%>
+							<option value="<%=c.getIdCorso()%>" disabled><%=c.getNomeCorso()%>
+								(Posti disponibili:
+								<%=posti%>)
+							</option>
+							<%
+							}
 							}
 							%>
 						</select>
