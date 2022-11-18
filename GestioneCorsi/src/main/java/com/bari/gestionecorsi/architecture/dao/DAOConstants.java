@@ -22,6 +22,7 @@ public interface DAOConstants {
 	String DELETE_CORSO = "delete from corso where id_corso=?";
 	String SELECT_CORSO_BYID = "select * from corso where id_corso = ?";
 	String SELECT_POSTICORSO = "select posti_disponibili from corso where id_corso=?";
+	String SELECT_ULTIMOCORSO = "select max(data_inizio_corso) from corso";
 	
 	//------CORSISTACORSO---------
 	String SELECT_CORSISTACORSO = "select * from corsista_corso";

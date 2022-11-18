@@ -1,6 +1,7 @@
 package com.bari.gestionecorsi.businesscomponent.facade;
 
 import java.io.IOException;
+import java.util.Date;
 
 import com.bari.gestionecorsi.architecture.dao.DAOException;
 import com.bari.gestionecorsi.businesscomponent.CorsistaBC;
@@ -70,6 +71,11 @@ public class AdminFacade {
 	public Corso getById(long id) throws ClassNotFoundException, DAOException, IOException {
 		corso = new CorsoBC();
 		return corso.getById(id);
+	}
+	
+	public Date getUltimoCorso() throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		return corso.getUltimoCorso();
 	}
 	
 	public void update(Docente d) throws ClassNotFoundException, DAOException, IOException {

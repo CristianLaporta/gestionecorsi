@@ -1,6 +1,9 @@
+<%@page import="java.text.DateFormat"%>
+
 <%@page import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%@page import="com.bari.gestionecorsi.businesscomponent.model.Corsista"%>
 <%
+	DateFormat formato = DateFormat.getDateInstance(DateFormat.LONG);
 	if(session.getAttribute("admin") != null) {
 %>
 
@@ -88,7 +91,7 @@
 				<tr>
 
 					<td>Inizio ultimo corso</td>
-					<td>---</td>
+					<td><%= formato.format(AdminFacade.getInstance().getUltimoCorso()) %></td>
 				</tr>
 
 				<tr>

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 
 import javax.sql.rowset.CachedRowSet;
 import javax.sql.rowset.RowSetProvider;
@@ -152,5 +153,20 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			throw new DAOException(sql);
 		}
 		return posti;
+	}
+	
+	public Date getUltimoCorso(Connection conn) throws DAOException {
+		Date data = null;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_ULTIMOCORSO);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next())
+				data = new java.util.Date(rs.getDate(1).getTime());
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return data;
 	}
 }

@@ -2,6 +2,7 @@ package com.bari.gestionecorsi.businesscomponent;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.Date;
 
 import com.bari.gestionecorsi.architecture.dao.CorsoDAO;
 import com.bari.gestionecorsi.architecture.dao.DAOException;
@@ -39,5 +40,9 @@ public class CorsoBC {
 	
 	public int getPostiCorso(long id) throws DAOException {
 		return CorsoDAO.getFactory().getPosti(conn, id);
+	}
+	
+	public Date getUltimoCorso() throws DAOException {
+		return CorsoDAO.getFactory().getUltimoCorso(conn);
 	}
 }
