@@ -42,26 +42,44 @@
 					</a>
 				</p>
 				<p class="link">
-					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
+					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill navpc "></i></a>
 				</p>
 			</div>
 			<ul class="navd">
-				<li class="link">
+				<li class="link navpc">
 					<a href="inserisci.jsp">Inserisci Corsista</a>
 				</li>
 				<li class="link">
-					<a class="active" href="admin.jsp">Visualizza Statistiche</a>
+					<a class="active navpc" href="admin.jsp">Visualizza Statistiche</a>
 				</li>
 				<li class="link dropdown">
 					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
 					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
-						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
+						<li><a class="dropdown-item navpc " href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
+						<li><a class="dropdown-item navpc  " href="inseriscicorsi.jsp">Nuovo Corso</a></li>
 					</ul>
 				</li>
 			</ul>
+			<button class="btn btn-primary navmobile" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				<i class="bi bi-list"></i>
+			  </button>
 		</div>
+		
 	</nav>
+	<div class="collapse" id="collapseExample">
+		<div class="card cla card-body">
+			<p class="link">
+				<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
+			</p>
+			<li class="link">
+				<a href="inserisci.jsp">Inserisci Corsista</a>
+			</li>
+			<li class="link">
+				<a class="active" href="admin.jsp">Visualizza Statistiche</a>
+			</li>
+			<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
+			<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
+		</div>
 </header>
 <body>
 	<div class="container">
@@ -85,7 +103,7 @@
 				</tr>
 				<tr>
 
-					<td>Corso più frequentato</td>
+					<td>Corso piï¿½ frequentato</td>
 					<td><%= AdminFacade.getInstance().CorsiMaxFreq() %></td>
 				</tr>
 				<tr>
