@@ -83,7 +83,7 @@
 				<tr>
 
 					<td>Corso più frequentato</td>
-					<td>---</td>
+					<td><%= AdminFacade.getInstance().CorsiMaxFreq() %></td>
 				</tr>
 				<tr>
 
