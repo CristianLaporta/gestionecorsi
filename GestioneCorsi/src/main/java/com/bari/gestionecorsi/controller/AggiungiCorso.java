@@ -11,13 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bari.gestionecorsi.businesscomponent.facade.AdminFacade;
 import com.bari.gestionecorsi.businesscomponent.model.Corso;
+import com.bari.gestionecorsi.businesscomponent.utilities.Validator;
 
 @WebServlet("/aggiungiCorso")
 public class AggiungiCorso extends HttpServlet {
 	private static final long serialVersionUID = -4436121848615229022L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Corso c = getCorso(request);
+		Corso c = getCorso(request,response);
 		try {
 			AdminFacade.getInstance().create(c);
 		} catch (Exception exc) {
@@ -27,7 +28,7 @@ public class AggiungiCorso extends HttpServlet {
 		response.sendRedirect("gestiscicorsi.jsp");
 	}
 	
-	private Corso getCorso(HttpServletRequest request) {
+	private Corso getCorso(HttpServletRequest request, HttpServletResponse response) {
 		Corso c = null;
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 		try {
@@ -38,15 +39,19 @@ public class AggiungiCorso extends HttpServlet {
 			String commenti = request.getParameter("commenti");
 			String aula = request.getParameter("aula");
 			String idDocente = request.getParameter("idDocente");
-			c = new Corso();
-			c.setNomeCorso(nome);
-			c.setDataInizioCorso(formato.parse(dataInizio));
-			c.setDataFineCorso(formato.parse(dataFine));
-			c.setCostoCorso(Double.parseDouble(costo));
-			c.setCommentiCorso(commenti);
-			c.setAulaCorso(aula);
-			c.setPostiDisponibili(12);
-			c.setIdDocente(Long.valueOf(idDocente));
+			if (Validator.getInstance().validString(nome) == true) {
+				c = new Corso();
+				c.setNomeCorso(nome);
+				c.setDataInizioCorso(formato.parse(dataInizio));
+				c.setDataFineCorso(formato.parse(dataFine));
+				c.setCostoCorso(Double.parseDouble(costo));
+				c.setCommentiCorso(commenti);
+				c.setAulaCorso(aula);
+				c.setPostiDisponibili(12);
+				c.setIdDocente(Long.valueOf(idDocente));
+			} else {
+				//response.sendRedirect("inseriscicorsi.jsp");
+			}
 		} catch (Exception exc) {
 			exc.printStackTrace();
 		}

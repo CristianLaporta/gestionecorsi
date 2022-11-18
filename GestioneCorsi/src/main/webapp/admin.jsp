@@ -30,58 +30,10 @@
 <link rel="stylesheet" href="css/admin.css">
 <title>Gestione Corsi</title>
 </head>
-<header>
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top navbar">
-		<div class="container-fluid">
-			<img id="logo" src="assets/img/logo.png" alt="">
-			<div class="nav">
-				<p class="link">
-					<a href="#">
-						<i class="bi bi-person-circle"></i>
-						 <%= session.getAttribute("admin") %>
-					</a>
-				</p>
-				<p class="link">
-					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill navpc "></i></a>
-				</p>
-			</div>
-			<ul class="navd">
-				<li class="link navpc">
-					<a href="inserisci.jsp">Inserisci Corsista</a>
-				</li>
-				<li class="link">
-					<a class="active navpc" href="admin.jsp">Visualizza Statistiche</a>
-				</li>
-				<li class="link dropdown">
-					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item navpc " href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
-						<li><a class="dropdown-item navpc  " href="inseriscicorsi.jsp">Nuovo Corso</a></li>
-					</ul>
-				</li>
-			</ul>
-			<button class="btn btn-primary navmobile" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-				<i class="bi bi-list"></i>
-			  </button>
-		</div>
-		
-	</nav>
-	<div class="collapse" id="collapseExample">
-		<div class="card cla card-body">
-			<p class="link">
-				<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
-			</p>
-			<li class="link">
-				<a href="inserisci.jsp">Inserisci Corsista</a>
-			</li>
-			<li class="link">
-				<a class="active" href="admin.jsp">Visualizza Statistiche</a>
-			</li>
-			<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
-			<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
-		</div>
-</header>
 <body>
+	<header>
+		<jsp:include page="nav.jsp" />
+	</header>
 	<div class="container">
 
 		<table class="table">

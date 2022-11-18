@@ -1,102 +1,129 @@
-.link {
-    font-weight: 500;
-    color: rgb(30, 35, 62);
-    margin-top: 5px;
-    margin-left: 40px;
-    text-decoration: none;
-    }
-    .nav {
-        position: absolute;
-        right: 20px;
-    
-    }
-    .navd {
-        position: absolute;
-        left: 200px;
-    display: flex;
-    }
-    #logo {
-        width: 150px;
-        margin-left: 30px;
-    }
-    
-    .navbar {
-        background-color: rgba(255, 255, 255, 0.798);
-        height: 80px;
-    }
-    body{
-        background: rgba(127, 146, 253, 0.18);
+.nav-item {
+	font-weight: 500;
+	color: rgb(30, 35, 62);
+	margin-top: 5px;
+	margin-left: 40px;
+	text-decoration: none;
+}
 
-        
-        
-    }
-    a {
-        text-decoration: none;
-        color: rgb(46, 45, 45);
-      }
-      a:link {
-        text-decoration: none;
-      }
-      
-      a:visited {
-        text-decoration: none;
-      }
-      
-      a:hover {
-        text-decoration: none;
-      }
-      
-      a:active {
-        text-decoration: none;
-      }
-      .table{
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        width: 90%;
-        top: 20%;
-        background-color: rgba(255, 255, 255, 0.638);
-        color: rgb(31, 31, 31);
-      }
-      
-      a.active {
-      	color: var(--bs-link-color) !important;
-      }
-      
-	.container {
-        margin-top: 150px;
+#logo {
+	width: 150px;
+	margin-left: 30px;
+}
+
+.navbar-expand-lg {
+	box-shadow: 0px 1px 1px #888888;
+}
+
+.navbar-expand-lg.show {
+	box-shadow: 0px 1px 1px #888888;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+	padding: 2rem 1.2rem;
+	font-size: 1.4rem;
+	position: relative;
+	z-index: 1;
+}
+
+.navbar-toggler {
+	background: #1351a5;
+	border: none;
+	padding: 10px 6px;
+	outline: none;
+	margin-right: 30px;
+}
+
+.navbar-toggler span {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border: 1px;
+	background: #fff;
+}
+
+.navbar-toggler span+span {
+	margin-top: 4px;
+	width: 18px;
+	margin-left: 4px;
+}
+
+.navbar-toggler span+span+span {
+	width: 10px;
+	margin-left: 4px;
+}
+
+.flex {
+	display: flex;
+}
+
+@media screen and (max-width: 992px) {
+	.flex {
+		display: block;
 	}
-      
-      ul {
-      	list-style: none;
-      }
-      
-     .button {
-     	position: relative;
-     	bottom: -200px;
-     }
-     .cla{
-      margin-top: 80px;
-      z-index: 999;
-    }
-    @media only screen and (max-width: 437px) {
-      .navpc{
-        display: none;
-      }
-    .navmobile{
-  
-      position: absolute;
-      right: 1px;
-    }
-  }
-    @media only screen and (min-width: 537px) {
-      .navpc{
-        display: block;
-      }
-      .navmobile{
-   display: none;
-      }
-    }
-  
+	.nav-item.active {
+		border-top: 2px solid #1351a5;
+		padding-top: 10px;
+	}
+}
+
+body {
+	background: rgba(127, 146, 253, 0.18);
+	z-index: -1;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(46, 45, 45);
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.table {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 90%;
+	top: 20%;
+	background-color: rgba(255, 255, 255, 0.638);
+	color: rgb(31, 31, 31);
+	z-index: -1;
+}
+
+a.active {
+	color: var(- -bs-link-color) !important;
+}
+
+.container {
+	margin-top: 150px;
+}
+
+ul {
+	list-style: none;
+}
+
+.button {
+	position: relative;
+	bottom: -200px;
+}
+
+.cla {
+	margin-top: 80px;
+	z-index: 999;
+}

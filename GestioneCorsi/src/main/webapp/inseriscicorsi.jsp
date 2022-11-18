@@ -2,7 +2,7 @@
 <%@page
 	import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
 <%
-	if (session.getAttribute("admin") != null) {
+if (session.getAttribute("admin") != null) {
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -22,60 +22,31 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/admin.css">
 <title>Inserisci Corsi</title>
 </head>
-<header>
-	<nav class="navbar navbar-expand-md navbar-dark fixed-top navbar">
-		<div class="container-fluid">
-			<img id="logo" src="assets/img/logo.png" alt="">
-			<div class="nav">
-				<p class="link">
-					<a href="#">
-						<i class="bi bi-person-circle"></i>
-						 <%= session.getAttribute("admin") %>
-					</a>
-				</p>
-				<p class="link">
-					<a href="logout.jsp">Logout <i class="bi bi-door-closed-fill"></i></a>
-				</p>
-			</div>
-			<ul class="navd">
-				<li class="link">
-					<a href="inserisci.jsp">Inserisci Corsista</a>
-				</li>
-				<li class="link">
-					<a  href="admin.jsp">Visualizza Statistiche</a>
-				</li>
-				<li class="link dropdown">
-					<a class="dropdown-toggle" role="button" data-bs-toggle="dropdown" href="#">Corsi</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="gestiscicorsi.jsp">Gestisci Corsi</a></li>
-						<li><a class="dropdown-item" href="inseriscicorsi.jsp">Nuovo Corso</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</nav>
-</header>
 <body>
+	<header>
+		<jsp:include page="nav.jsp" />
+	</header>
 	<div class="container">
 		<header class="page-header">
 			<h3>Inserire i dati per aggiungere nuovo corso</h3>
 		</header>
-		<form
-			action="/<%=application.getServletContextName()%>/aggiungiCorso"
+		<form action="/<%=application.getServletContextName()%>/aggiungiCorso"
 			method="post" class="form-horizontal" id="userForm">
 			<div class="form-group">
 				<label class="col-md-1 control-label">Nome</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-text"><i class="bi bi-person"></i></span> 
-						<input type="text"name="nome" id="nome" placeholder="Nome..." class="form-control">
+						<span class="input-group-text"><i class="bi bi-person"></i></span>
+						<input type="text" name="nome" id="nome" placeholder="Nome..."
+							class="form-control">
 					</div>
 				</div>
 			</div>
@@ -83,8 +54,10 @@
 				<label class="col-md-1 control-label">Data Inizio</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group date">
-						<span class="input-group-text"><i class="bi bi-calendar-day"></i></span>
-						<input type="date" name="dataInizio" placeholder="DD/MM/YYYY" class="form-control" id="dataInizio">
+						<span class="input-group-text"><i
+							class="bi bi-calendar-day"></i></span> <input type="date"
+							name="dataInizio" placeholder="DD/MM/YYYY" class="form-control"
+							id="dataInizio">
 					</div>
 				</div>
 			</div>
@@ -92,8 +65,10 @@
 				<label class="col-md-1 control-label">Data Fine</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group date">
-						<span class="input-group-text"><i class="bi bi-calendar-day"></i></span>
-						<input type="date" name="dataFine" placeholder="DD/MM/YYYY" class="form-control" id="dataFine">
+						<span class="input-group-text"><i
+							class="bi bi-calendar-day"></i></span> <input type="date"
+							name="dataFine" placeholder="DD/MM/YYYY" class="form-control"
+							id="dataFine">
 					</div>
 				</div>
 			</div>
@@ -101,8 +76,10 @@
 				<label class="col-md-1 control-label">Costo</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-text"><i class="bi bi-currency-euro"></i></span>
-						<input type="number" name="costo" placeholder="Costo..." class="form-control" id="costo">
+						<span class="input-group-text"><i
+							class="bi bi-currency-euro"></i></span> <input type="number"
+							name="costo" placeholder="Costo..." class="form-control"
+							id="costo">
 					</div>
 				</div>
 			</div>
@@ -111,7 +88,8 @@
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-text"><i class="bi bi-body-text"></i></span>
-						<input type="text" name="commenti" placeholder="Commenti..." class="form-control" id="commenti">
+						<input type="text" name="commenti" placeholder="Commenti..."
+							class="form-control" id="commenti">
 					</div>
 				</div>
 			</div>
@@ -120,7 +98,8 @@
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-text"><i class="bi bi-hospital"></i></span>
-						<input type="text" name="aula" placeholder="Aula..." class="form-control" id="aula">
+						<input type="text" name="aula" placeholder="Aula..."
+							class="form-control" id="aula">
 					</div>
 				</div>
 			</div>
@@ -129,7 +108,8 @@
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
 						<span class="input-group-text"><i class="bi bi-door-open"></i></span>
-						<input type="number" name="posti" value="12" class="form-control" id="posti" disabled>
+						<input type="number" name="posti" value="12" class="form-control"
+							id="posti" disabled>
 					</div>
 				</div>
 			</div>
@@ -137,17 +117,17 @@
 				<label class="col-md-1 control-label">Docente</label>
 				<div class="col-md-4 inputGroupContainer">
 					<div class="input-group">
-						<span class="input-group-text"><i class="bi bi-person"></i></span> 
-						<select class="form-select"
-							aria-label="Default select example" name="idDocente">
-							<option selected disabled >Docenti disponibili</option>
+						<span class="input-group-text"><i class="bi bi-person"></i></span>
+						<select class="form-select" aria-label="Default select example"
+							name="idDocente">
+							<option selected disabled>Docenti disponibili</option>
 							<%
-								Docente[] docenti = AdminFacade.getInstance().getDocenti();
-								for (Docente c : docenti) {
+							Docente[] docenti = AdminFacade.getInstance().getDocenti();
+							for (Docente c : docenti) {
 							%>
-								<option value="<%=c.getIdDocente()%>"><%=c.getNomeDocente()%></option>
+							<option value="<%=c.getIdDocente()%>"><%=c.getNomeDocente()%></option>
 							<%
-								}
+							}
 							%>
 						</select>
 					</div>
@@ -156,8 +136,7 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-1" style="margin-top: 1em;">
 					<button type="submit" class="btn btn-warning">
-						Inserisci Corso&nbsp;&nbsp;<span
-							class="glyphicon glyphicon-send"></span>
+						Inserisci Corso&nbsp;&nbsp;<span class="glyphicon glyphicon-send"></span>
 					</button>
 				</div>
 			</div>
@@ -166,7 +145,7 @@
 </body>
 </html>
 <%
-	} else {
-		response.sendRedirect("nonloggato.jsp");
-	}
+} else {
+response.sendRedirect("nonloggato.jsp");
+}
 %>

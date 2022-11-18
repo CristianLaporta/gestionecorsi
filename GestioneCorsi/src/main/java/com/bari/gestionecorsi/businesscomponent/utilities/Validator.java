@@ -40,14 +40,14 @@ public class Validator {
 	}
 	
 	public boolean validComment(String string) {
-		Pattern p = Pattern.compile("(\\\\w)(\\\\s+)([\\\\.,]){1,200}", Pattern.CASE_INSENSITIVE);
+		Pattern p = Pattern.compile("(\\w)(\\s+)([\\.,]){1,200}", Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(string);
 		boolean b = m.matches();
 		return b;
 	}
 	
 	public boolean validAula(String string) {
-		Pattern p = Pattern.compile("(\\\\w)(\\\\s+)([\\\\.,]){1,30}", Pattern.CASE_INSENSITIVE);
+		Pattern p = Pattern.compile("(\\w)(\\s+)([\\.,]){1,30}", Pattern.CASE_INSENSITIVE);
 		Matcher m = p.matcher(string);
 		boolean b = m.matches();
 		return b;
