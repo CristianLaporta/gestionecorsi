@@ -26,7 +26,7 @@ class CorsistaCorsoDAOTest {
 	private static CorsistaCorso corsistaCorso;
 	private static Connection conn;
 	
-	@BeforeAll
+	/*@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		//CORSISTA CREATE
 		conn = DBAccess.getConnection();
@@ -52,9 +52,9 @@ class CorsistaCorsoDAOTest {
 		corsistaCorso = new CorsistaCorso();
 		corsistaCorso.setIdCorsista(1);
 		corsistaCorso.setIdCorso(1);
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	void testCreate() {
 		try{
 			CorsistaDAO.getFactory().create(conn, corsista);
@@ -76,8 +76,18 @@ class CorsistaCorsoDAOTest {
 			e.printStackTrace();
 		}
 	}
+	*/
 	
-	@AfterAll
+	@Test
+	void testContaFreq() throws DAOException {
+		String corso = null;
+		
+		corso = CorsistaCorsoDAO.getFactory().corsiFreq(conn);
+		System.out.println(corso);
+	}
+	
+	
+	/*@AfterAll
 	static void tearDownAfterClass() throws Exception {
 		try {
 			CorsoDAO.getFactory().delete(conn, corso);
@@ -89,6 +99,6 @@ class CorsistaCorsoDAOTest {
 			exc.printStackTrace();
 			fail("Motivo: "+exc.getMessage());
 		}
-	}
+	}*/
 
 }

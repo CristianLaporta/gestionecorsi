@@ -101,4 +101,9 @@ public class AdminFacade {
 		corsistacorso = new CorsistaCorsoBC();
 		return corsistacorso.getCorsiFreq(id);
 	}
+	
+	public String CorsiMaxFreq() throws ClassNotFoundException, DAOException, IOException {
+		corsistacorso = new CorsistaCorsoBC();
+		return corsistacorso.getCorsiMaxFreq();
+	}
 }

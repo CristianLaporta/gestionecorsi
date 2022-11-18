@@ -54,9 +54,9 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 		} catch (SQLException sql) {
 			throw new DAOException(sql);
 		}
-		return 12-posti;
+		return 12 - posti;
 	}
-	
+
 	public int getCorsiFreq(Connection conn, long id) throws DAOException {
 		int posti = 0;
 		PreparedStatement ps;
@@ -71,6 +71,21 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 			throw new DAOException(sql);
 		}
 		return posti;
+	}
+
+	public String corsiFreq(Connection conn) throws DAOException {
+		String corsoFreq = null;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_CORSO_FREQ);
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			corsoFreq = rs.getString(1);
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return corsoFreq;
 	}
 
 }

@@ -27,6 +27,10 @@ public class CorsistaCorsoBC {
 		public int getCorsiFreq(long id) throws DAOException {
 			return CorsistaCorsoDAO.getFactory().getCorsiFreq(conn, id);
 		}
+		
+		public String getCorsiMaxFreq() throws DAOException {
+			return CorsistaCorsoDAO.getFactory().corsiFreq(conn);
+		}
 
 	
 

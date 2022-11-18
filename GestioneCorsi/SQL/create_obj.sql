@@ -44,3 +44,11 @@ constraint p_cc primary key(id_corsista, id_corso));
 --Sequenze
 create sequence corsista_seq;
 create sequence corso_seq;
+
+--VIEW
+create or replace view corso_freq as
+select nome_corso, count(corsista_corso.id_corso) as count 
+from corsista_corso, corso 
+where corso.id_corso = corsista_corso.id_corso 
+group by nome_corso
+order by count desc;
