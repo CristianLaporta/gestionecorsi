@@ -115,8 +115,8 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 		try {
 			ps = conn.prepareStatement(SELECT_CORSO_FREQ);
 			ResultSet rs = ps.executeQuery();
-			rs.next();
-			corsoFreq = rs.getString(1);
+			if(rs.next())
+				corsoFreq = rs.getString(1);
 
 		} catch (SQLException sql) {
 			throw new DAOException(sql);

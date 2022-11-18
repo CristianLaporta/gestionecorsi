@@ -97,7 +97,7 @@
 				<tr>
 
 					<td>Durata media corsi</td>
-					<td>---</td>
+					<td><%= AdminFacade.getInstance().getMediaCorsi() %></td>
 				</tr>
 
 				<tr>

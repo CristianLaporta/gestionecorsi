@@ -78,6 +78,11 @@ public class AdminFacade {
 		return corso.getUltimoCorso();
 	}
 	
+	public int getMediaCorsi() throws ClassNotFoundException, DAOException, IOException {
+		corso = new CorsoBC();
+		return corso.getMediaCorsi();
+	}
+	
 	public void update(Docente d) throws ClassNotFoundException, DAOException, IOException {
 		docente = new DocenteBC();
 		docente.update(d);

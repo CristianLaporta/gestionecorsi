@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.sql.rowset.CachedRowSet;
@@ -154,7 +156,7 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		}
 		return posti;
 	}
-	
+
 	public Date getUltimoCorso(Connection conn) throws DAOException {
 		Date data = null;
 		PreparedStatement ps;
@@ -169,4 +171,65 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 		}
 		return data;
 	}
+	
+	public int getMediaCorsi(Connection conn) throws DAOException {
+		int media = 0;
+		int conta = 0;
+		ArrayList<Integer> giorni = new ArrayList<Integer>();
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_DATE_MEDIA);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				giorni.add(getWorkingDaysBetweenTwoDates(new java.util.Date(rs.getDate(1).getTime()), new java.util.Date(rs.getDate(2).getTime())));
+				System.out.println(new java.util.Date(rs.getDate(1).getTime()) + " "+  new java.util.Date(rs.getDate(2).getTime()));
+				conta ++;
+				System.out.println(conta);
+			}
+
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		for(int giorno : giorni) {
+			media += giorno;
+		}
+		
+		media = media/giorni.size();
+		
+		return media;
+	}
+
+	private int getWorkingDaysBetweenTwoDates(Date startDate, Date endDate) {
+
+		Calendar startCal = Calendar.getInstance();
+		startCal.setTime(startDate);
+
+		Calendar endCal = Calendar.getInstance();
+		endCal.setTime(endDate);
+
+		int workDays = 0;
+
+		// Return 1 if start and end are the same
+		if (startCal.getTimeInMillis() == endCal.getTimeInMillis()) {
+			return 1;
+		}
+
+		if (startCal.getTimeInMillis() > endCal.getTimeInMillis()) {
+			startCal.setTime(endDate);
+			endCal.setTime(startDate);
+		}
+
+		do {
+			// excluding start date
+			startCal.add(Calendar.DAY_OF_MONTH, 1);
+			if (startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY
+					&& startCal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+				++workDays;
+			}
+		} while (startCal.getTimeInMillis() <= endCal.getTimeInMillis()); // excluding end date
+
+		return workDays;
+	}
+
+	
 }

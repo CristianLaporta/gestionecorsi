@@ -45,4 +45,8 @@ public class CorsoBC {
 	public Date getUltimoCorso() throws DAOException {
 		return CorsoDAO.getFactory().getUltimoCorso(conn);
 	}
+	
+	public int getMediaCorsi() throws DAOException {
+		return CorsoDAO.getFactory().getMediaCorsi(conn);
+	}
 }
