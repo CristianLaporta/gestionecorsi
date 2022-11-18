@@ -24,7 +24,8 @@ public interface DAOConstants {
 	String SELECT_POSTICORSO = "select posti_disponibili from corso where id_corso=?";
 	
 	//------CORSISTACORSO---------
-	String SELECT_CORSISTACORSO= "select * from corsista_corso";
+	String SELECT_CORSISTACORSO = "select * from corsista_corso";
+	String SELECT_POSTIDISPONIBILI = "select posti_disponibili from corso where id_corso = ?";
 	String SELECT_POSTIOCCUPATI = "select count(id_corso) from corsista_corso where id_corso = ?";
 	String SELECT_NUMCORSI = "select count(id_corsista) from corsista_corso where id_corsista = ?";
 	String SELECT_CORSO_FREQ = "select * from corso_freq";

@@ -1,7 +1,8 @@
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.Docente"%>
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.Corso"%>
 <%@page import="com.bari.gestionecorsi.businesscomponent.facade.AdminFacade"%>
-<%@page import="com.bari.gestionecorsi.businesscomponent.model.Corsista"%>
 <%
-	if(session.getAttribute("admin") != null) {
+	if(session.getAttribute("admin") != null){	
 %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
@@ -61,75 +62,61 @@
 	</nav>
 </header>
 <body>
-	<div class="container">
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th scope="col">Statistiche</th>
-					<th scope="col">Valore</th>
-				</tr>
-			</thead>
-			<tbody class="table-group-divider">
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Data Inizio</th>
+				<th>Data Fine</th>
+				<th>Costo</th>
+				<th>Commenti</th>
+				<th>Aula</th>
+				<th>Posti Disponibili</th>
+				<th>Nome Docente</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody class="table-group-divider">
+		<%
+			Corso[] corsi = null;
+			corsi = AdminFacade.getInstance().getCorsi();
+			for (Corso c : corsi) {
+				int posti = AdminFacade.getInstance().getPostiOccupati(c.getIdCorso());
+				if(posti>0) {
+		%>
+			<tr>
+				<th><%=c.getIdCorso() %></th>
+				<th><%=c.getNomeCorso() %></th>
+				<th><%=c.getDataInizioCorso() %></th>
+				<th><%=c.getDataFineCorso() %></th>
+				<th><%=c.getCostoCorso() %></th>
+				<th><%=c.getCommentiCorso() %></th>
+				<th><%=c.getAulaCorso() %></th>
+				<th><%= posti%></th>
 				<%
-				Corsista[] corsisti = null;
-				corsisti = AdminFacade.getInstance().getCorsisti();
+					Docente d = AdminFacade.getInstance().getDocenteById(c.getIdDocente());
 				%>
-				<tr>
-
-					<td>Corsisti totali</td>
-					<td><%=corsisti.length%></td>
-				</tr>
-				<tr>
-
-					<td>Corso più frequentato</td>
-					<td><%= AdminFacade.getInstance().CorsiMaxFreq() %></td>
-				</tr>
-				<tr>
-
-					<td>Inizio ultimo corso</td>
-					<td>---</td>
-				</tr>
-
-				<tr>
-
-					<td>Durata media corsi</td>
-					<td>---</td>
-				</tr>
-
-				<tr>
-					<td>Elenco corsisti</td>
-
-					<td><a href="visualizzacorsisti.jsp" class="btn btn-primary">Visualizza</a>
-
-
-					</td>
-
-				</tr>
-
-
-				<tr>
-
-					<td>Corsi con posti disponibili</td>
-					<td>
-						<a href ="corsipostidisponibili.jsp" type="submit" class="btn btn-danger btn-sm">
-							 Visualizza
-						</a>
-					</td>
-				</tr>
-
-			</tbody>
-
-		</table>
-
-
-
-
-	</div>
+				<th><%= d.getNomeDocente() %> </th>
+				<th>
+					<form action="/<%= application.getServletContextName()%>/rimuoviCorso?id=<%= c.getIdCorso() %>" method="post">
+						<button type="submit" class="btn btn-danger btn-sm">
+							<span class="glyphicon glyphicon-trash"> Elimina</span>
+						</button>
+					</form>
+				</th>
+			</tr>
+		</tbody>
+		<%
+				}
+			}
+		%>
+	</table>
 </body>
 </html>
 <%
 	} else {
 		response.sendRedirect("nonloggato.jsp");
-	}
+		}
 %>
