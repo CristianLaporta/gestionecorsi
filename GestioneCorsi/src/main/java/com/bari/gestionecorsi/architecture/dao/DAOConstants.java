@@ -28,6 +28,7 @@ public interface DAOConstants {
 	String SELECT_POSTIOCCUPATI = "select count(id_corso) from corsista_corso where id_corso = ?";
 	String SELECT_NUMCORSI = "select count(id_corsista) from corsista_corso where id_corsista = ?";
 	String SELECT_CORSO_FREQ = "select * from corso_freq";
+	String SELECT_CORSISTACORSO_BYID= "select * from corsista_corso where id_corsista = ?";
 	
 	//----------SEQUENZE----------
 	String SELECT_CORSISTASEQ = "select corsista_seq.nextval from dual"; // per recuperare id sequenza

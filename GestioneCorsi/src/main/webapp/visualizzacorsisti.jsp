@@ -1,3 +1,4 @@
+<%@page import="com.bari.gestionecorsi.businesscomponent.model.CorsistaCorso"%>
 <%@page import="com.bari.gestionecorsi.businesscomponent.model.Corsista"%>
 <%@page import="com.bari.gestionecorsi.businesscomponent.model.Docente"%>
 <%@page import="com.bari.gestionecorsi.businesscomponent.model.Corso"%>
@@ -72,7 +73,7 @@
 				<th>Nome</th>
 				<th>Cognome</th>
 				<th>Precedenti</th>
-				<th>Numero corsi</th>
+				<th>Corso Frequentato</th>
 			</tr>
 		</thead>
 		<tbody class="table-group-divider">
@@ -80,12 +81,16 @@
 			Corsista[] corsisti = null;
 			corsisti = AdminFacade.getInstance().getCorsisti();
 			for (Corsista c : corsisti) {
+				CorsistaCorso cc = null;
+				Corso corso = null;
+				cc = AdminFacade.getInstance().findCorsoById(c.getIdCorsista());
+				corso = AdminFacade.getInstance().getById(cc.getIdCorso());
 		%>
 			<tr>
 				<th><%=c.getNomeCorsista() %></th>
 				<th><%=c.getCognomeCorsista() %></th>
 				<th><%=c.getPrecedentiCorsista() %></th>
-				<th><%=AdminFacade.getInstance().getCorsiFreq(c.getIdCorsista()) %></th>
+				<th><%= corso.getNomeCorso()%></th>
 				
 			</tr>
 		</tbody>

@@ -40,6 +40,25 @@ public class CorsistaCorsoDAO extends GenericDAOAdapter<CorsistaCorso> implement
 			throw new DAOException(sql);
 		}
 	}
+	
+	@Override
+	public CorsistaCorso getById(Connection conn, long id) throws DAOException {
+		CorsistaCorso cc = null;
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(SELECT_CORSISTACORSO_BYID);
+			ps.setLong(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				cc = new CorsistaCorso();
+				cc.setIdCorsista(rs.getLong(1));
+				cc.setIdCorso(rs.getLong(2));
+			}
+		} catch (SQLException sql) {
+			throw new DAOException(sql);
+		}
+		return cc;
+	}
 
 	public int getPostiOccupati(Connection conn, long id) throws DAOException {
 		int posti = 0;

@@ -92,7 +92,7 @@
 				<th><%=c.getCostoCorso() %></th>
 				<th><%=c.getCommentiCorso() %></th>
 				<th><%=c.getAulaCorso() %></th>
-				<th><%=c.getPostiDisponibili() %></th>
+				<th><%=AdminFacade.getInstance().getPostiOccupati(c.getIdCorso()) %></th>
 				<%
 					Docente d = AdminFacade.getInstance().getDocenteById(c.getIdDocente());
 				%>
