@@ -4,14 +4,19 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html lang="en">	
+<head>	
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<title>Login Page</title>
+</head>
+<body class="align">
 <p class="thome">
 	<a href="index.jsp"><i class="bi bi-arrow-left-circle-fill"></i>
 		Torna alla Home</a>
 </p>
-<body class="align">
 	<div class="gradient"></div>
 	<video autoplay muted loop id="myVideo">
 		<source src="assets/video/backgroundlogin.mp4" type="video/mp4">

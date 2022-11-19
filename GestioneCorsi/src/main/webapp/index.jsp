@@ -14,8 +14,10 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
-        <title>Gestione Corsi</title>
+        <title>Home Page</title>
     </head>
+    
+    <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top navbar">
             <div class="container-fluid">
@@ -26,8 +28,6 @@
             </div>
         </nav>
     </header>
-    
-    <body>
         <div class="banner">
             <div class="gradient"></div>
             <video autoplay muted loop id="myVideo">

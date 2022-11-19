@@ -26,7 +26,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/admin.css">
-<title>Gestione Corsi</title>
+<title>Corsi con Posti Disponibili</title>
 </head>
 <body>
 	<header>
