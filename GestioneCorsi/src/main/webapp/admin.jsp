@@ -72,12 +72,7 @@
 
 				<tr>
 					<td>Elenco corsisti</td>
-
-					<td><a href="visualizzacorsisti.jsp" class="btn btn-primary">Visualizza</a>
-
-
-					</td>
-
+					<td><a href="visualizzacorsisti.jsp" class="btn btn-primary">Visualizza</a></td>
 				</tr>
 
 

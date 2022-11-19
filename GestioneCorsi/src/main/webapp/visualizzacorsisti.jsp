@@ -34,7 +34,6 @@
 	<header>
 		<jsp:include page="nav.jsp" />
 	</header>
-	<a href="admin.jsp" class="btn btn-primary" style="margin-top: 90px; margin-left: 60px;">Torna indietro</a>
 	<table class="table">
 		<thead>
 		
@@ -60,22 +59,16 @@
 				<th><%=c.getCognomeCorsista() %></th>
 				<th><%=c.getPrecedentiCorsista() %></th>
 				<th><%= corso.getNomeCorso()%></th>
-				
 			</tr>
 		</tbody>
 		<%
 			}
 		%>
-		
 	</table>
-	
-	
-	
-	
 </body>
 </html>
 <%
 	} else {
 		response.sendRedirect("nonloggato.jsp");
-		}
+	}
 %>

@@ -10,21 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/logOut")
 public class DestroyCookie extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-    public DestroyCookie() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private static final long serialVersionUID = -5063032838196638569L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());		
 
 			Cookie ck = new Cookie("userLogged", "");
 	        response.addCookie(ck); 
-		        System.out.println("CookieDestroied: " + ck.getName() + " " + ck.getValue());
-		        	response.sendRedirect("index.jsp");
-			}
+		    response.sendRedirect("index.jsp");
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

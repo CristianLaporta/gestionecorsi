@@ -10,13 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/userLogin")
 public class UserLogin extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	//private static HttpSession session;
-
-	public UserLogin() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private static final long serialVersionUID = 4321186794859719747L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -24,10 +18,7 @@ public class UserLogin extends HttpServlet {
 		Cookie ck[] = request.getCookies();
 		if (ck != null) {
 			for (int i = 0; i < ck.length; i++) {
-				System.out.println("Cookies: " + ck[i].getName() + " " + ck[i].getValue());
 				if (ck[i].getName().equals("userLogged") && ck[i].getValue().equals("true")) {
-					System.out.println("Benvenuto: " + ck[i].getName() + " " + ck[i].getValue());
-					//session.setAttribute("admin", );
 					response.sendRedirect("admin.jsp");
 				}
 			}

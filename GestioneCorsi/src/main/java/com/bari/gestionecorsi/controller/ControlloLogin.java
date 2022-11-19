@@ -35,7 +35,6 @@ public class ControlloLogin extends HttpServlet {
 						session.setAttribute("admin", username);
 						Cookie ck = new Cookie("userLogged", "true");
 						response.addCookie(ck);
-						System.out.println("NewCookie: " + ck.getName() + " " + ck.getValue());
 						response.sendRedirect("userLogin");
 					} else {
 						decrementoContatore(session, response);

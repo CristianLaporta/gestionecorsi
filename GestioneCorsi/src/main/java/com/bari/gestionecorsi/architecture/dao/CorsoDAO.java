@@ -174,7 +174,6 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 	
 	public int getMediaCorsi(Connection conn) throws DAOException {
 		int media = 0;
-		int conta = 0;
 		ArrayList<Integer> giorni = new ArrayList<Integer>();
 		PreparedStatement ps;
 		try {
@@ -182,9 +181,6 @@ public class CorsoDAO implements GenericDAO<Corso>, DAOConstants {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				giorni.add(getWorkingDaysBetweenTwoDates(new java.util.Date(rs.getDate(1).getTime()), new java.util.Date(rs.getDate(2).getTime())));
-				System.out.println(new java.util.Date(rs.getDate(1).getTime()) + " "+  new java.util.Date(rs.getDate(2).getTime()));
-				conta ++;
-				System.out.println(conta);
 			}
 
 		} catch (SQLException sql) {
